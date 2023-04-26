@@ -7,6 +7,10 @@ import androidx.annotation.RequiresApi;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**
+ * Diese Klasse implementiert den Nutzer der EnergizeMe-App.
+ */
+
 public class Benutzer {
     private String name;
     private Gender gender;
