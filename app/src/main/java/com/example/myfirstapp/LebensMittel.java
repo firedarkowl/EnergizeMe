@@ -1,22 +1,15 @@
 package com.example.myfirstapp;
-
-
-
-
-
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.Map;
-
+/**Ein Klasse , die implementiert, was ein Benutzer der App an einem Tag verbraucht */
 
 public class LebensMittel {
-    public Kunde getKunde() {
-        return kunde;
+    public Benutzer getKunde() {
+        return benutzer;
     }
 
-    public void setKunde(Kunde kunde) {
-        this.kunde = kunde;
+    public void setKunde(Benutzer benutzer) {
+        this.benutzer = benutzer;
     }
 
     public String getName() {
@@ -27,7 +20,7 @@ public class LebensMittel {
         this.name = name;
     }
 
-    private Kunde kunde;
+    private Benutzer benutzer;
     private String name;
     private Map<String, Double> naehrwerte; // Key: Nährstoff, Value: Nährwert pro 100g
 
@@ -64,14 +57,13 @@ public class LebensMittel {
             }
         }
         return true;
-    }
-
+    }//diese Methode Berchnet den Punkte von ein Lebensmittel ein, und den Punkte am Taglichepunktstand addiert
     public double punkt(double portionsgroesse) {
         double kalorien = berechneKalorien(portionsgroesse);
         double fett = naehrwerte.get("Fett") * portionsgroesse / 100.0;
         double ballaststoffe = Math.min(naehrwerte.get("Ballaststoffe"), 4.0) * portionsgroesse / 100.0;
         double points = Math.ceil((kalorien / 50.0 + fett / 12.0 - ballaststoffe / 5.0) * 2.0) / 2.0;
-        kunde.addTaglicheBestanspunkte(points);;
+        benutzer.setTaglicheBestanspunkte1(points);;
         return points;
     }
 

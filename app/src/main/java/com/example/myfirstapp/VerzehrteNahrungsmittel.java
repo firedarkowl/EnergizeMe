@@ -7,13 +7,13 @@ import java.time.LocalDate;
 
 public class VerzehrteNahrungsmittel {
 
-    private Kunde kunde;
+    private Benutzer benutzer;
     private LebensMittel  lebensMittel;
     private LocalDate datum;
     private double menge; // in Gramm
 
-    public VerzehrteNahrungsmittel(Kunde kunde,LebensMittel lebensMittel, LocalDate datum, double menge) {
-        this.kunde=kunde;
+    public VerzehrteNahrungsmittel(Benutzer benutzer,LebensMittel lebensMittel, LocalDate datum, double menge) {
+        this.benutzer=benutzer;
         this.lebensMittel = lebensMittel;
         this.datum = datum;
         this.menge = menge;
@@ -52,6 +52,6 @@ public class VerzehrteNahrungsmittel {
     }
 
     public String toString() {
-        return String.format("%s (%s) am %s, %.2f g", kunde,lebensMittel.getName(),lebensMittel.getNaehrwerte(), datum, menge);
+        return String.format("%s (%s) am %s, %.2f g", benutzer,lebensMittel.getName(),lebensMittel.getNaehrwerte(), datum, menge);
     }
 }
