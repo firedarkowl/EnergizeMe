@@ -17,6 +17,10 @@ import com.example.myfirstapp.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     DataBaseHelper myDb;
+    private Button createButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,23 +37,40 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.toolbar);
+        Button btn = (Button) findViewById(R.id.button_create);
+        btn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText txt1 = findViewById(R.id.vorname);
+                String vorname = txt1.getText().toString();
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+                EditText txt2 = findViewById(R.id.nachname);
+                String nachname = txt2.getText().toString();
+
+                Toast.makeText(getApplicationContext(), "Welcome " + vorname + " " + nachname, Toast.LENGTH_LONG).show();
+            }
+        }));
+
+
+
+        //setSupportActionBar(binding.toolbar);
+
+        /*NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        myDb = new DataBaseHelper(this);
+        myDb = new DataBaseHelper(this);*/
 
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+        /*binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

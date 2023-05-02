@@ -1,5 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    id 'com.android.application' version '7.4.2' apply false
-    id 'com.android.library' version '7.4.2' apply false
+    /*
+    * Als erste Anweisung in der Build Configuration wird das
+    * Android plugin for Gradle angewandt.
+    * Dadurch wird der "android" Block verfügbar, durch den
+    * spezielle Android-Build-Options verfügbar werden.
+    */
+    id 'com.android.application' version '8.0.0' apply false
+
+    //das hier hab ich noch keine Ahnung was es macht
+    id 'com.android.library' version '8.0.0' apply false
 }
