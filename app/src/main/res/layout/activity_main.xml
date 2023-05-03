@@ -13,7 +13,6 @@
         android:background="#ebefcc">
 
         <TextView
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/contrail_one"
@@ -25,23 +24,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/vorname"
-                android:layout_width="wrap_content"
+                android:textAlignment="center"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/input_field"
-                android:text="Vorname">
-            </EditText>
+                android:hint="Vorname"
+                android:padding="10dp"></EditText>
             <EditText
                 android:id="@+id/nachname"
-                android:layout_width="wrap_content"
+                android:textAlignment="center"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:padding="10dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/input_field"
-                android:text="Nachname">
+                android:hint="Nachname">
             </EditText>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <Button
