@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.EnergizeMe.myfirstapp;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
 import java.time.LocalDate;
