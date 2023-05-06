@@ -1,6 +1,8 @@
 package com.example.EnergizeMe.myfirstapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.myfirstapp.R;
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     DataBaseHelper myDb;
     private Button createButton;
 
+    private String PREF_NAME = null;
+    private String PREF_NACHNAME = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,12 +42,13 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         Button btn = (Button) findViewById(R.id.button_create);
         btn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(youShallNotPass()){
+                if (youShallNotPass()) {
                     Intent i = new Intent(getApplicationContext(), UserView.class);
                     startActivity(i);
                 } else {
@@ -93,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

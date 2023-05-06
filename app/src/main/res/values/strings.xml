@@ -13,4 +13,6 @@
     <string name="title_activity_user_view">UserView</string>
     <string name="tab_text_1">Punkte</string>
     <string name="tab_text_2">Tracking</string>
+    <string name="vorname" />
+    <string name="nachname" />
 </resources>
