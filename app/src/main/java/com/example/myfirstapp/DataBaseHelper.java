@@ -1,5 +1,6 @@
 package com.example.myfirstapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -21,10 +22,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_10 = "PUNKTESTANDTAG";
     public static final String COL_11 = "PUNKTESTANDWOCHE";
 
-
     public DataBaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db = this.getWritableDatabase();
+
+        //SQLiteDatabase db = this.getWritableDatabase();
     }
 
     @Override
@@ -37,5 +38,29 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " +  TABLE_NAME);
         onCreate(db);
+    }
+
+    public boolean insertData(String name, String gebDatum,
+                              String geschlecht, String groesse,String gewicht, String ziel,
+                              String taetigkeitslevel, String taeglichePunkte, String punktestandtag, String punktestandwoche) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2, name);
+        contentValues.put(COL_3, gebDatum);
+        contentValues.put(COL_4, geschlecht);
+        contentValues.put(COL_5, groesse);
+        contentValues.put(COL_6, gewicht);
+        contentValues.put(COL_7, ziel);
+        contentValues.put(COL_8, taetigkeitslevel);
+        contentValues.put(COL_9, taeglichePunkte);
+        contentValues.put(COL_10, punktestandtag);
+        contentValues.put(COL_11, punktestandwoche);
+        // wenn db.insert -1 returned = Fehler, wenn ID der Zeile ausgegeben = hat geklappt
+        long result = db.insert(TABLE_NAME, null, contentValues);
+        if(result == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
