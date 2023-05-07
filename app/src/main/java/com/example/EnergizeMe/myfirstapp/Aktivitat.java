@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.EnergizeMe.myfirstapp;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
 import java.time.LocalDate;
@@ -72,19 +72,19 @@ public class Aktivitat {
             throw new IllegalArgumentException("Unbekannte Sportart: " + sportArt);
         }
 
-// Wenn es bereits ein Event gab und eine Woche seitdem vergangen ist, setzen Sie gesparte Punkte auf 0
+        // Wenn es bereits ein Event gab und eine Woche seitdem vergangen ist, setzen Sie gesparte Punkte auf 0
         LocalDate today = LocalDate.now();
         if (today.isAfter(lastEvent.plusWeeks(1))) {
             savedPoints = 0;
         }
 
         savedPoints +=punkte;
-//Hier wird die maximale Anzahl von Punkten berechnet, die täglich gespart werden können.
-// Dabei wird die aktuelle Anzahl der gespeicherten Punkte savedPoints mit dem Wert 4.0 verglichen und der kleinere Wert ausgewählt.
+        //Hier wird die maximale Anzahl von Punkten berechnet, die täglich gespart werden können.
+        // Dabei wird die aktuelle Anzahl der gespeicherten Punkte savedPoints mit dem Wert 4.0 verglichen und der kleinere Wert ausgewählt.
         double dailySavedPoints = Math.min(savedPoints, 4.0);
-//Die Anzahl der gespeicherten Punkte wird um die Anzahl der täglich gesparten Punkte reduziert.
+        //Die Anzahl der gespeicherten Punkte wird um die Anzahl der täglich gesparten Punkte reduziert.
         savedPoints -= dailySavedPoints;
-// Ziehe die Punkte ab, was man isst von sportpunkte, sorge dafür, dass die Punktzahl nicht negativ wird
+        // Ziehe die Punkte ab, was man isst von sportpunkte, sorge dafür, dass die Punktzahl nicht negativ wird
         return Math.max(benutzer.getPunktstandwoche() - dailySavedPoints, 0.0);
     }
 }

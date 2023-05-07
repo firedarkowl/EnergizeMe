@@ -1,8 +1,11 @@
-package com.example.myfirstapp;
+package com.example.EnergizeMe.myfirstapp;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.example.myfirstapp.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,7 +22,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     DataBaseHelper myDb;
     private Button createButton;
 
+    private String PREF_NAME = null;
+    private String PREF_NACHNAME = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,19 +42,22 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         Button btn = (Button) findViewById(R.id.button_create);
         btn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText txt1 = findViewById(R.id.vorname);
-                String vorname = txt1.getText().toString();
 
-                EditText txt2 = findViewById(R.id.nachname);
-                String nachname = txt2.getText().toString();
-
-                Toast.makeText(getApplicationContext(), "Welcome " + vorname + " " + nachname, Toast.LENGTH_LONG).show();
+                if (youShallNotPass()) {
+                    Intent i = new Intent(getApplicationContext(), UserView.class);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(MainActivity.this, "Bitte gib deine Daten ein!", Toast.LENGTH_SHORT).show();
+                }
             }
         }));
+
+
 
 
 
@@ -69,6 +77,27 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
+    }
+
+    /**
+     *Hilfsmethode: checkt ob der User seinen Namen und Nachnamen eingegeben hat
+     */
+    private boolean youShallNotPass() {
+        EditText txt1 = findViewById(R.id.vorname);
+        String vorname = txt1.getText().toString();
+
+        EditText txt2 = findViewById(R.id.nachname);
+        String nachname = txt2.getText().toString();
+
+        if(vorname.isEmpty()) {
+            txt1.setError("Bitte deinen Namen eingeben!");
+            return false;
+        }
+        if(nachname.isEmpty()) {
+            txt2.setError("Bitte deinen Namen eingeben!");
+            return false;
+        }
+        return true;
     }
 
 

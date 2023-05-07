@@ -12,4 +12,10 @@
         <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
         …..
     </style>
+    <style name="Theme.MyFirstApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.MyFirstApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.MyFirstApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

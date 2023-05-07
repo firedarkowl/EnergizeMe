@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/background">
+    android:background="@drawable/bild">
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,7 +13,6 @@
         android:background="#ebefcc">
 
         <TextView
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/contrail_one"
@@ -25,23 +24,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/vorname"
-                android:layout_width="wrap_content"
+                android:text = "@string/vorname"
+                android:textAlignment="center"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/input_field"
-                android:text="Vorname">
-            </EditText>
+                android:hint="Vorname"
+                android:padding="10dp"></EditText>
             <EditText
                 android:id="@+id/nachname"
-                android:layout_width="wrap_content"
+                android:text = "@string/nachname"
+                android:textAlignment="center"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:padding="10dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/input_field"
-                android:text="Nachname">
+                android:hint="Nachname">
             </EditText>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <Button
@@ -50,6 +53,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Account erstellen"></Button>
+            android:text="Start"></Button>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.appcompat.widget.LinearLayoutCompat>

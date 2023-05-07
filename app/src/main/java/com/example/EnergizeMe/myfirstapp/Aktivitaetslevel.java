@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.EnergizeMe.myfirstapp;
 
 /**
  * Diese Enum-Klasse definiert die möglichen Aktivitaetslevel der Nutzer.

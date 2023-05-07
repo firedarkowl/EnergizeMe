@@ -1,9 +1,9 @@
-package com.example.myfirstapp;
+package com.example.EnergizeMe.myfirstapp;
 
 /**
  * Diese Enum-Klasse definiert die möglichen Gender der Nutzer.
  */
 
 public enum Gender {
-    MALE,FAMALE,DIVERS;
+    MALE,FEMALE,DIVERS;
 }
