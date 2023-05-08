@@ -56,5 +56,10 @@ public class DataBaseEintragMahlzeit extends SQLiteOpenHelper {
         }
     }
 
+    public Integer deleteData (String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, "EINTRAG_MAHLZEIT_ID = ?", new String[] {id});
+    }
+
 
 }
