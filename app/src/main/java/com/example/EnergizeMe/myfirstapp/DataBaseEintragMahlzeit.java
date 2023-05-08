@@ -2,6 +2,7 @@ package com.example.EnergizeMe.myfirstapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -28,7 +29,7 @@ public class DataBaseEintragMahlzeit extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String befehl ="create table " + TABLE_NAME + "(EINTRAG_MAHLZEITID INTEGER PRIMARY KEY AUTOINCREMENT," +
+        String befehl ="create table " + TABLE_NAME + " (EINTRAG_MAHLZEITID INTEGER PRIMARY KEY AUTOINCREMENT," +
                "BENUTZER_ID INTEGER, LEBENSMITTEL_ID INTEGER, DATUM DATE, UHRZEIT TIME, MENGE INTEGER," +
                 //"FOREIGN KEY (LEBENSMITTEL_ID) REFERENCES DataBaseLebensmittel(LEBENSMITTEL_ID)"
                  "FOREIGN KEY (BENUTZER_ID) REFERENCES DataBaseHelper(ID))";
@@ -61,5 +62,9 @@ public class DataBaseEintragMahlzeit extends SQLiteOpenHelper {
         return db.delete(TABLE_NAME, "EINTRAG_MAHLZEIT_ID = ?", new String[] {id});
     }
 
-
+    public Cursor getAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
+        return res;
+    }
 }

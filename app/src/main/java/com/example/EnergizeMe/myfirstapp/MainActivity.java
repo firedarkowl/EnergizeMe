@@ -1,8 +1,6 @@
 package com.example.EnergizeMe.myfirstapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.myfirstapp.R;
@@ -29,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
 
-    DataBaseHelper myDb;
+    DataBaseHelperBenutzer myDb;
     EditText editName, editGebDatum;
     Button btnAddData;
 
@@ -48,12 +46,13 @@ public class MainActivity extends AppCompatActivity {
 
         /*
         // von Lan: um DB zu erstellen und erste Benutzerdaten zu erfassen
-        myDb = new DataBaseHelper(this);
+        myDb = new DataBaseHelperBenutzer(this);
 
         // edit-Variablen bzw. R.id.x-Variablen muessen noch anepasst werden. Ich weiss nicht welche Variablen alles im
         // Frontend sind
         editName = (EditText) findViewById(R.id.vorname);
         //editGebDatum = (EditText) findViewById(R.id.)
+
         */
 
 
