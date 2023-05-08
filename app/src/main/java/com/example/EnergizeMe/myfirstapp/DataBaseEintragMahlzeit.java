@@ -57,14 +57,31 @@ public class DataBaseEintragMahlzeit extends SQLiteOpenHelper {
         }
     }
 
-    public Integer deleteData (String id){
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME, "EINTRAG_MAHLZEIT_ID = ?", new String[] {id});
-    }
-
     public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
         return res;
     }
+
+    public boolean updateData(String mahlzeitid, String benutzerid, String lebensmittelid, String datum,
+                    String uhrzeit, String menge) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_1, mahlzeitid);
+        contentValues.put(COL_2, benutzerid);
+        contentValues.put(COL_3, lebensmittelid);
+        contentValues.put(COL_4, datum);
+        contentValues.put(COL_5, uhrzeit);
+        contentValues.put(COL_6, menge);
+        db.update(TABLE_NAME, contentValues, "EINTRAG_MAHLZEIT_ID = ?", new String[] { mahlzeitid });
+        return true;
+
+    }
+
+    public Integer deleteData (String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, "EINTRAG_MAHLZEIT_ID = ?", new String[] {id});
+    }
+
+
 }

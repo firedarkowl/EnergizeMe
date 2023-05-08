@@ -91,4 +91,10 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
         return true;
     }
 
+    public Integer deleteData (String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, "nutzerid = ?", new String[] {id});
+    }
+
+
 }
