@@ -1,8 +1,6 @@
 package com.example.EnergizeMe.myfirstapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.myfirstapp.R;
@@ -29,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
 
-    DataBaseHelper myDb;
+    DataBaseHelperBenutzer myDb;
+    EditText editName, editGebDatum;
+    Button btnAddData;
+
     private Button createButton;
 
     private String PREF_NAME = null;
@@ -41,6 +42,18 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        /*
+        // von Lan: um DB zu erstellen und erste Benutzerdaten zu erfassen
+        myDb = new DataBaseHelperBenutzer(this);
+
+        // edit-Variablen bzw. R.id.x-Variablen muessen noch anepasst werden. Ich weiss nicht welche Variablen alles im
+        // Frontend sind
+        editName = (EditText) findViewById(R.id.vorname);
+        //editGebDatum = (EditText) findViewById(R.id.)
+
+        */
 
 
         Button btn = (Button) findViewById(R.id.button_create);
@@ -61,13 +74,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         //setSupportActionBar(binding.toolbar);
 
         /*NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        myDb = new DataBaseHelper(this);*/
+        */
 
 
         /*binding.fab.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +92,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
     }
+
+    /*
+    public void addData() {
+        btnAddData.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //noch in bearbeitung
+                        boolean isInserted = myDb.insertData(editName.getText());
+                        if(isInserted==true) {
+                            Toast.makeText(MainActivity.this, "Data INserted", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(MainActivity.this,"Data not Inserted", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+        );
+    }
+    */
 
     /**
      *Hilfsmethode: checkt ob der User seinen Namen und Nachnamen eingegeben hat

@@ -6,8 +6,8 @@ plugins {
     * Dadurch wird der "android" Block verfügbar, durch den
     * spezielle Android-Build-Options verfügbar werden.
     */
-    id 'com.android.application' version '8.0.0' apply false
+    id 'com.android.application' version '8.0.1' apply false
 
     //das hier hab ich noch keine Ahnung was es macht
-    id 'com.android.library' version '8.0.0' apply false
+    id 'com.android.library' version '8.0.1' apply false
 }
