@@ -16,7 +16,7 @@ xmlns:tools="http://schemas.android.com/tools">
     android:theme="@style/Theme.MyFirstApp"
     tools:targetApi="31">
     <activity
-        android:name="com.example.EnergizeMe.myfirstapp.MainActivity"
+        android:name="com.example.EnergizeMe.myfirstapp.ui.main.MainActivity"
         android:exported="true"
         android:label="@string/app_name"
 
@@ -29,7 +29,7 @@ xmlns:tools="http://schemas.android.com/tools">
     </activity>
     <activity
         android:label="@string/app_name"
-        android:name="com.example.EnergizeMe.myfirstapp.UserView"
+        android:name="com.example.EnergizeMe.myfirstapp.ui.main.UserView"
         android:theme="@style/AppTheme"/>
 
     <meta-data

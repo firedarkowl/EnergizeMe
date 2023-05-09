@@ -1,4 +1,6 @@
-package com.example.EnergizeMe.myfirstapp;
+package com.example.EnergizeMe.myfirstapp.Logik;
+import com.example.EnergizeMe.myfirstapp.Logik.Benutzer;
+
 import java.util.HashMap;
 import java.util.Map;
 /**Ein Klasse , die implementiert, was ein Benutzer der App an einem Tag verbraucht */

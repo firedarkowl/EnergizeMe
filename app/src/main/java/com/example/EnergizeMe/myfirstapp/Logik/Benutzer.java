@@ -1,4 +1,4 @@
-package com.example.EnergizeMe.myfirstapp;
+package com.example.EnergizeMe.myfirstapp.Logik;
 
 import android.os.Build;
 

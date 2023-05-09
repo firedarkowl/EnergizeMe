@@ -1,4 +1,4 @@
-package com.example.EnergizeMe.myfirstapp;
+package com.example.EnergizeMe.myfirstapp.Datenbank;
 
 import android.content.ContentValues;
 import android.content.Context;

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.EnergizeMe.myfirstapp.UserView"
+    tools:context="com.example.EnergizeMe.myfirstapp.ui.main.UserView"
     android:background="@drawable/background">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -35,7 +35,8 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

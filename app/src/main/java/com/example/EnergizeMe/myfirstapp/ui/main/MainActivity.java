@@ -1,26 +1,23 @@
-package com.example.EnergizeMe.myfirstapp;
+package com.example.EnergizeMe.myfirstapp.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.example.myfirstapp.R;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.EnergizeMe.myfirstapp.Datenbank.DataBaseHelperBenutzer;
+import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,6 +61,13 @@ public class MainActivity extends AppCompatActivity {
                 if (youShallNotPass()) {
                     Intent i = new Intent(getApplicationContext(), UserView.class);
                     startActivity(i);
+                    EditText txt1 = findViewById(R.id.vorname);
+                    String vorname = txt1.getText().toString();
+
+                    EditText txt2 = findViewById(R.id.nachname);
+                    String nachname = txt2.getText().toString();
+
+                    Toast.makeText(MainActivity.this, "Willkommen " + vorname + " " + nachname, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Bitte gib deine Daten ein!", Toast.LENGTH_SHORT).show();
                 }
