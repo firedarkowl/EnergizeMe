@@ -14,6 +14,8 @@ import com.example.myfirstapp.databinding.FragmentUserViewBinding;
 
 /**
  * A placeholder fragment containing a simple view.
+ *
+ * Diese hier ist für "Mein Tag" verantwortlich?
  */
 public class PlaceholderFragment extends Fragment {
 

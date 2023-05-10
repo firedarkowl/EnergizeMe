@@ -1,4 +1,4 @@
-package com.example.EnergizeMe.myfirstapp;
+package com.example.EnergizeMe.myfirstapp.Datenbank;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -90,5 +90,11 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
         db.update(TABLE_NAME, contentValues, "nutzerid = ?", new String[] { id });
         return true;
     }
+
+    public Integer deleteData (String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, "nutzerid = ?", new String[] {id});
+    }
+
 
 }

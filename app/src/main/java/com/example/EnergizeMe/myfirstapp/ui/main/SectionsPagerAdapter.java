@@ -12,6 +12,8 @@ import com.example.myfirstapp.R;
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
+ *
+ * Später für "Tracking" Tab verantwortlich?
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 

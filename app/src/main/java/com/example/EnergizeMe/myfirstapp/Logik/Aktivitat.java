@@ -1,6 +1,9 @@
-package com.example.EnergizeMe.myfirstapp;
+package com.example.EnergizeMe.myfirstapp.Logik;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
+
+import com.example.EnergizeMe.myfirstapp.Logik.Benutzer;
+
 import java.time.LocalDate;
 /**Diese Klasse implemntiert den Aktivität von den Nutzer von Energize-Me App*/
 public class Aktivitat {

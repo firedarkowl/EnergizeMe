@@ -1,4 +1,4 @@
-package com.example.EnergizeMe.myfirstapp;
+package com.example.EnergizeMe.myfirstapp.Logik;
 
 /**
  * Diese Enum-Klasse definiert die moeglichen Ernaehrungsziele der Nutzer.

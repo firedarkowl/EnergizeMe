@@ -1,7 +1,8 @@
-package com.example.EnergizeMe.myfirstapp;
+package com.example.EnergizeMe.myfirstapp.Datenbank;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -42,6 +43,8 @@ public class DataBaseEintragAktivität extends SQLiteOpenHelper {
     public boolean insertData(String datum, String uhrzeit, String dauer) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        // wie macht man das mit FKs
+        // als Parameter übergeben oder getter-MEthode??
         contentValues.put(COL_3, datum);
         contentValues.put(COL_4, uhrzeit);
         contentValues.put(COL_5, dauer);
@@ -51,6 +54,26 @@ public class DataBaseEintragAktivität extends SQLiteOpenHelper {
         } else {
             return true;
         }
+    }
+
+    public Cursor getAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
+        return res;
+    }
+
+    public boolean updateData(String aktivitaetid, String benutzerid, String datum,
+                              String uhrzeit, String dauer) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_1, aktivitaetid);
+        contentValues.put(COL_2, benutzerid);
+        contentValues.put(COL_3, datum);
+        contentValues.put(COL_4, uhrzeit);
+        contentValues.put(COL_5, dauer);
+        db.update(TABLE_NAME, contentValues, "EINTRAG_MAHLZEIT_ID = ?", new String[] { aktivitaetid });
+        return true;
+
     }
 
     public Integer deleteData (String id){

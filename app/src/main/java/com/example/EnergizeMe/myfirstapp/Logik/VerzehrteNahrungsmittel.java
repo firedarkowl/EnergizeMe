@@ -1,6 +1,9 @@
-package com.example.EnergizeMe.myfirstapp;
+package com.example.EnergizeMe.myfirstapp.Logik;
 
 
+
+import com.example.EnergizeMe.myfirstapp.Logik.Benutzer;
+import com.example.EnergizeMe.myfirstapp.Logik.LebensMittel;
 
 import java.time.LocalDate;
 
@@ -8,7 +11,7 @@ import java.time.LocalDate;
 public class VerzehrteNahrungsmittel {
 
     private Benutzer benutzer;
-    private LebensMittel  lebensMittel;
+    private LebensMittel lebensMittel;
     private LocalDate datum;
     private double menge; // in Gramm
 
