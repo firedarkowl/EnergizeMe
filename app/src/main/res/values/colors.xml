@@ -30,4 +30,24 @@
     <color name="md_theme_dark_onSurface">#E6E1E5</color>
     <color name="md_theme_dark_surfaceVariant">#49454F</color>
 
+    <color name="startseite_green_pastel">#bcbf5e</color>
+    <color name="startseite_orange_light_pastel">#f2b705</color>
+    <color name="startseite_orange_mediumlight_pastel">#f29f05</color>
+    <color name="startseite_orange_orange_pastel">#f25c05</color>
+    <color name="startseite_rot_pastel">#bf2604</color>
+
+    <color name="rosa_1">#FFDDDD</color>
+    <color name="rosa_2">#EFB0C9</color>
+    <color name="gelb_1">#F1F0CF</color>
+    <color name="gelb_2">#FFF9AA</color>
+    <color name="grün_1">#DEFDE0</color>
+    <color name="grün_2">#B5EAD7</color>
+    <color name="blau_1">#DEF3FD</color>
+    <color name="blau_2">#A1C9F1</color>
+    <color name="lila_1">#F0DEFD</color>
+    <color name="lila_2">#CEC8E4</color>
+    
+    <color name="Text_grün_1">#7CAA98</color>
+    <color name="Text_grün_2">#344C11</color>
+
 </resources>
