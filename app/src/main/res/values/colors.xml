@@ -38,16 +38,39 @@
 
     <color name="rosa_1">#FFDDDD</color>
     <color name="rosa_2">#EFB0C9</color>
-    <color name="gelb_1">#F1F0CF</color>
-    <color name="gelb_2">#FFF9AA</color>
+    <color name="rosa_3">#FF9AA2</color>
+
     <color name="grün_1">#DEFDE0</color>
     <color name="grün_2">#B5EAD7</color>
+
     <color name="blau_1">#DEF3FD</color>
     <color name="blau_2">#A1C9F1</color>
+
     <color name="lila_1">#F0DEFD</color>
     <color name="lila_2">#CEC8E4</color>
+    <color name="lila_3">#E0BBE4</color>
+    <color name="lila_4">#957DAD</color>
     
     <color name="Text_grün_1">#7CAA98</color>
     <color name="Text_grün_2">#344C11</color>
+
+    <color name="green_deco">#DBE19C</color>
+    <color name="green_smoke">#9CA45C</color>
+    <color name="green_texas">#F3F394</color>
+    <color name="green_highland">#748D6A</color>
+    <color name="green_swamp">#A7B985</color>
+    <color name="green_bayleaf">#85AB8E</color>
+    <color name="green_calpoly">#2C4A2A</color>
+    <color name="green_pinetree">#1A210F</color>
+
+    <color name="gelb_sandwisp">#F8E8A0</color>
+    <color name="gelb_1">#F1F0CF</color>
+    <color name="gelb_2">#FFF9AA</color>
+
+    <color name="brown_copper">#AC743C</color>
+    <color name="brown_ferra">#7A5450</color>
+    <color name="brown_dear">#C48458</color>
+    <color name="brown_fallow">#C8A37B</color>
+    <color name="brown_donkey">#604920</color>
 
 </resources>

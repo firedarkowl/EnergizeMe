@@ -1,16 +1,26 @@
 <resources>
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/md_theme_light_primary</item>
-        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
-        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
-        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
-        <item name="colorError">@color/md_theme_light_error</item>
-        <item name="colorOnError">@color/md_theme_light_onError</item>
-        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
-        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
-        <item name="colorSurface">@color/md_theme_light_surface</item>
-        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
-        …..
+        <item name="background">@drawable/rosie_avocado_bg_3</item>
+        <item name="android:textColor">@color/Text_grün_2</item>
+
+        <item name="colorPrimary">@color/green_highland</item>
+        <item name="colorOnPrimary">@color/Text_grün_2</item>
+        <item name="colorPrimaryContainer">@color/brown_fallow</item>
+        <item name="colorOnPrimaryContainer">@color/gelb_sandwisp</item>
+        <item name="colorPrimaryVariant">@color/gelb_sandwisp</item>
+
+        <item name="colorSecondary">@color/brown_copper</item>
+        <item name="colorOnSecondary">@color/gelb_sandwisp</item>
+
+        <item name="colorError">@color/rosa_1</item>
+        <item name="colorOnError">@color/rosa_3</item>
+        <item name="colorErrorContainer">@color/lila_1</item>
+        <item name="colorOnErrorContainer">@color/lila_4</item>
+
+        <item name="colorSurface">@color/gelb_1</item>
+        <item name="colorOnSurface">@color/Text_grün_2</item>
+
+        <item name="android:fontFamily">@font/font_by_rosie</item>
     </style>
     <style name="Theme.MyFirstApp.NoActionBar">
         <item name="windowActionBar">false</item>

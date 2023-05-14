@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.EnergizeMe.myfirstapp.UserView"
-    android:background="@drawable/background">
+    tools:context="com.example.EnergizeMe.myfirstapp."
+    android:background="@drawable/rosie_avocado_bg_3">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_height="wrap_content"
@@ -22,13 +22,13 @@
             android:padding="@dimen/appbar_padding"
             android:text="Mein Tag"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-            android:background="#B0C485"/>
+            android:background="@color/green_swamp"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#B0C485"/>
+            android:background="@color/gelb_sandwisp"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
