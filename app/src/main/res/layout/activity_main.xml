@@ -1,7 +1,7 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/Background_Startseite"
+    android:background="@drawable/rosie_background_startseite"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="@font/contrail_one"
+            android:fontFamily="@font/font_by_rosie"
             android:text="EnergizeMe"
             android:textAlignment="center"
             android:textColor="@color/Text_grün_2"
