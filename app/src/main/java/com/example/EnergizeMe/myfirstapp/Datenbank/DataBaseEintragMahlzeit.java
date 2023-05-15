@@ -32,7 +32,7 @@ public class DataBaseEintragMahlzeit extends SQLiteOpenHelper {
         String befehl ="create table " + TABLE_NAME + " (EINTRAG_MAHLZEITID INTEGER PRIMARY KEY AUTOINCREMENT," +
                "BENUTZER_ID INTEGER, LEBENSMITTEL_ID INTEGER, DATUM DATE, UHRZEIT TIME, MENGE INTEGER," +
                 //"FOREIGN KEY (LEBENSMITTEL_ID) REFERENCES DataBaseLebensmittel(LEBENSMITTEL_ID)"
-                 "FOREIGN KEY (BENUTZER_ID) REFERENCES DataBaseHelper(ID))";
+                 "FOREIGN KEY (BENUTZER_ID) REFERENCES DataBaseHelperBenutzer(ID))";
         db.execSQL(befehl);
     }
 

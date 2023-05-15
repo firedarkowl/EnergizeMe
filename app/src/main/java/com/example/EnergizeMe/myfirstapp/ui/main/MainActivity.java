@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     DataBaseHelperBenutzer myDb;
-    EditText editName, editGebDatum;
-    Button btnAddData;
+    EditText editVorname, editNachname;
 
     private Button createButton;
 
@@ -41,19 +40,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        /*
-        // von Lan: um DB zu erstellen und erste Benutzerdaten zu erfassen
+        Button btn = (Button) findViewById(R.id.button_create);
+
+        // von Lan
         myDb = new DataBaseHelperBenutzer(this);
 
-        // edit-Variablen bzw. R.id.x-Variablen muessen noch anepasst werden. Ich weiss nicht welche Variablen alles im
-        // Frontend sind
-        editName = (EditText) findViewById(R.id.vorname);
-        //editGebDatum = (EditText) findViewById(R.id.)
+        editVorname = (EditText)findViewById(R.id.vorname);
+        editNachname = (EditText)findViewById(R.id.nachname);
+        btn = (Button)findViewById(R.id.button_create);
+        addData();
 
-        */
-
-
-        Button btn = (Button) findViewById(R.id.button_create);
         btn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,16 +93,16 @@ public class MainActivity extends AppCompatActivity {
         });*/
     }
 
-    /*
     public void addData() {
-        btnAddData.setOnClickListener(
+        createButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         //noch in bearbeitung
-                        boolean isInserted = myDb.insertData(editName.getText());
+                        boolean isInserted = myDb.insertData(editVorname.getText().toString(),
+                                editNachname.getText().toString());
                         if(isInserted==true) {
-                            Toast.makeText(MainActivity.this, "Data INserted", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(MainActivity.this,"Data not Inserted", Toast.LENGTH_LONG).show();
                         }
@@ -114,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
-    */
 
     /**
      *Hilfsmethode: checkt ob der User seinen Namen und Nachnamen eingegeben hat

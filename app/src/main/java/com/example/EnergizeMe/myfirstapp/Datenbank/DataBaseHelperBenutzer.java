@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "nutzer.db";
     public static final String TABLE_NAME = "nutzer_table";
-    public static final String COL_1 = "NUTZERID";
+    public static final String COL_1 = "ID";
     public static final String COL_2 = "VORNAME";
     public static final String COL_3 = "NACHNAME";
 

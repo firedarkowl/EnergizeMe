@@ -30,7 +30,7 @@ public class DataBaseEintragAktivität extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String befehl = "create table " + TABLE_NAME + "(EINTRAG_AKTIVITÄT_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "BENUTZER_ID INTEGER, DATUM DATE, UHRZEIT TIME, DAUER INTEGER," +
-                "FOREIGN KEY (BENUTZER_ID) REFERENCES DataBaseHelper(ID))";
+                "FOREIGN KEY (BENUTZER_ID) REFERENCES DataBaseHelperBenutzer(ID))";
         db.execSQL(befehl);
     }
 
