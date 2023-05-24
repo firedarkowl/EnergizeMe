@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     DataBaseHelperBenutzer myDb;
     EditText editVorname, editNachname;
 
-    private Button createButton;
+    //private Button createButton;
 
     private String PREF_NAME = null;
     private String PREF_NACHNAME = null;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         editVorname = (EditText)findViewById(R.id.vorname);
         editNachname = (EditText)findViewById(R.id.nachname);
         btn = (Button)findViewById(R.id.button_create);
-        addData();
+        //addData();
 
         btn.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         });*/
     }
 
-    public void addData() {
+/*    public void addData() {
         createButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-    }
+    }*/
 
     /**
      *Hilfsmethode: checkt ob der User seinen Namen und Nachnamen eingegeben hat

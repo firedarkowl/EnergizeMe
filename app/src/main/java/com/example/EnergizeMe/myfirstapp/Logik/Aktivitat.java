@@ -66,6 +66,7 @@ public class Aktivitat {
     public double berechneVerbrannteKalorien() {
         double punkte=0.0;
         if (sportArt.equals("Leicht Sport")) {
+            //wtf ist das für eine hart gecodete Zahl?!
             punkte += (dauer * benutzer.getWeight() /1940.0);
         } else if (sportArt.equals("Mittel Intensiv")) {
             punkte += (dauer * benutzer.getWeight()) / 1400.0;
