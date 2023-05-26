@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (youShallNotPass()) {
-                    Intent i = new Intent(getApplicationContext(), UserView.class);
+                    Intent i = new Intent(getApplicationContext(), MeinTag.class);
                     startActivity(i);
                     EditText txt1 = findViewById(R.id.vorname);
                     String vorname = txt1.getText().toString();
