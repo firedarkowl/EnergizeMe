@@ -15,6 +15,11 @@
         android:theme="@style/Theme.MyFirstApp"
         tools:targetApi="31">
         <activity
+            android:name=".MeinProfil"
+            android:exported="false"
+            android:label="@string/title_activity_mein_profil"
+            android:theme="@style/Theme.MyFirstApp" />
+        <activity
             android:name="com.example.EnergizeMe.myfirstapp.ui.main.MeinTag"
             android:exported="false"
             android:label="@string/title_activity_mein_tag"
