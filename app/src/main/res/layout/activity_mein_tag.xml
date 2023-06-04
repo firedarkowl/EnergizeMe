@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/rosie_avocado_bg_3"
+    android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -34,7 +34,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text = "Deine Punkte heute: "/>
+                android:gravity="center"
+                android:text = "Deine Punkte heute: "
+                android:textSize = "20dp"
+                />
 
 
 
