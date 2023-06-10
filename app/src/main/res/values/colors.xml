@@ -73,4 +73,12 @@
     <color name="brown_fallow">#C8A37B</color>
     <color name="brown_donkey">#604920</color>
 
+    <color name="solidCircle">#AAFFFFFF</color>
+    <color name="circleBorder">#50FFFFFF</color>
+    <color name="gradEnd">#778D45</color>
+    <color name="gradStart">#2C4A2A</color>
+    <color name="address">#2C4A2A</color>
+    <color name="gradient_background_box">#D5e7da</color>
+
+
 </resources>
