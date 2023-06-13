@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.EnergizeMe.myfirstapp.ui.main;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +9,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMeinProfilBinding;
 import com.google.android.material.snackbar.Snackbar;
 
