@@ -31,7 +31,7 @@
 
             android:id="@+id/header"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="192dp"
             android:layout_marginLeft="18dp"
             android:layout_marginRight="18dp"
             android:background="@drawable/grad"
@@ -61,15 +61,14 @@
 
             <TextView
                 android:id="@+id/name"
-                android:layout_width="wrap_content"
+                android:layout_width="262dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageUser"
-                android:layout_centerHorizontal="true"
-                android:padding="7dp"
                 android:fontFamily="@font/font_by_rosie"
+                android:padding="7dp"
                 android:text="Max Mustermann"
                 android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/birthday"
@@ -87,7 +86,7 @@
         </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="399dp"
+            android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="vertical">
@@ -171,8 +170,8 @@
             <LinearLayout
                 android:id="@+id/weight_container"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="13dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="13dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -210,7 +209,7 @@
             <LinearLayout
                 android:id="@+id/activity_container"
                 android:layout_width="wrap_content"
-                android:layout_height="99dp"
+                android:layout_height="94dp"
                 android:layout_marginTop="13dp"
                 android:orientation="horizontal">
 
