@@ -5,5 +5,5 @@ package com.example.EnergizeMe.myfirstapp.Logik;
  */
 
 public enum Ernaehrungsziel {
-    ABNEHMEN,ZUNEHMEN,GEWICHTHALTEN;
+    ABNEHMEN, ZUNEHMEN, GEWICHTHALTEN;
 }
