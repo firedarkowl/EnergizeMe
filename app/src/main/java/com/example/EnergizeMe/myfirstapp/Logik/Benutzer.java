@@ -10,7 +10,6 @@ import java.time.LocalTime;
 /**
  * Diese Klasse implementiert den Nutzer der EnergizeMe-App.
  */
-
 public class Benutzer {
     private String name;
     private Gender gender;
@@ -24,6 +23,11 @@ public class Benutzer {
     private double taglicheBestanspunkte;
     private double PunktZahl;
 
+    private double wochepunktstand = 0; // Weekly points variable
+    private LocalDate startDate= LocalDate.now(); // Start date of the counting period
+    private int daysCounter = 0; // Counter for the number of days
+    private LebensMittel lebensMittel;
+    private Aktivitat aktivitat;
     public Benutzer(String name, Gender gender, LocalDate birthdate, int height, double weight, Ernaehrungsziel ernaehungsziel, Aktivitaetslevel aktivitaetslevel) {
         this.name = name;
         this.gender = gender;
@@ -32,7 +36,138 @@ public class Benutzer {
         this.weight = weight;
         this.ernaehungsziel = ernaehungsziel;
         this.aktivitaetslevel = aktivitaetslevel;
+    }
 
+    /**
+     * Berechnet den täglichen Punktestand des Benutzers.
+     *
+     * @return der tägliche Punktestand des Benutzers
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public double taglichePunktstand() {
+
+        punktstandtag = setPunktZahl();
+            if (aktivitat != null) {
+                punktstandtag += aktivitat.berechneVerbrannteKalorien();}
+            if(lebensMittel != null){
+                punktstandtag -= lebensMittel.getPoints();
+            }
+        LocalTime now = LocalTime.now();
+        if (now.getHour() >= 23) {
+            punktstandtag = 0;
+        }
+        LocalDate today = LocalDate.now();
+        if (today.isAfter(startDate.plusDays(6))) {
+            // Start of a new counting period (7 days), reset the weekly points
+            wochepunktstand = 0;
+            startDate = today; // Update the startDate to the current date
+            daysCounter = 0; // Reset the days counter
+            punktstandwoche = 0;
+        }
+        punktstandwoche += punktstandtag;
+        daysCounter++;
+        return punktstandtag;
+    }
+
+    public double berechneWochepunktstand() {
+        return wochepunktstand;
+    }
+
+    /**
+     * Gibt das Alter des Benutzers zurück.
+     *
+     * @return das Alter des Benutzers
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public int getAge() {
+        LocalDate now = LocalDate.now();
+        int age = now.getYear() - birthdate.getYear();
+        if (now.getMonthValue() < birthdate.getMonthValue() ||
+                (now.getMonthValue() == birthdate.getMonthValue() && now.getDayOfMonth() < birthdate.getDayOfMonth())) {
+            age--;
+        }
+        return age;
+    }
+
+    /**
+     * Fügt die täglichen Bestanspunkte des Benutzers hinzu.
+     */
+    public void addTaglicheBestanspunkte(double punkte) {
+        punktstandtag += punkte;
+    }
+
+    /**
+     * Setzt die Punktzahl des Benutzers basierend auf verschiedenen Faktoren wie Geschlecht, Alter, Größe, Gewicht und Aktivitätsniveau.
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public double setPunktZahl() {
+        double punktZahl = 0;
+
+        switch (gender) {
+            case MALE:
+                punktZahl += 15;
+                break;
+            case FEMALE:
+                punktZahl += 7;
+                break;
+            case DIVERS:
+                punktZahl += 15;
+                break;
+        }
+
+        // Points based on age
+        int age = getAge();
+        if (age >= 18 && age <= 20) {
+            punktZahl += 5;
+        } else if (age >= 21 && age <= 35) {
+            punktZahl += 4;
+        } else if (age >= 36 && age <= 50) {
+            punktZahl += 3;
+        } else if (age >= 51 && age <= 65) {
+            punktZahl += 2;
+        } else if (age > 66) {
+            punktZahl += 1;
+        }
+
+        // Points based on height
+        double height = getHeight();
+        if (height < 1.60) {
+            punktZahl += 1;
+        } else {
+            punktZahl += 2;
+        }
+
+        // Points based on weight
+        double initialWeight = getWeight();
+        int weightPoints = (int) Math.floor(initialWeight / 10);
+        punktZahl += weightPoints;
+
+        // Points based on activity level
+        switch (aktivitaetslevel) {
+            case NIEDRIG:
+                punktZahl += 1;
+                break;
+            case MODERAT:
+                punktZahl += 2;
+                break;
+            case HOCH:
+                punktZahl += 4;
+                break;
+            case EXTREM:
+                punktZahl += 6;
+                break;
+        }
+        // set the total points
+        PunktZahl = punktZahl;
+    return  PunktZahl;
+    }
+    /**
+     * Gibt die Punktzahl des Benutzers zurück.
+     *
+     * @return die Punktzahl des Benutzers
+     */
+    public double getPunktZahl() {
+        return PunktZahl;
     }
 
     public String getName() {
@@ -95,136 +230,7 @@ public class Benutzer {
         return punktstandtag;
     }
 
-    public void setPunktstandtag(double punktstandtag) {
-        this.punktstandtag = punktstandtag;
-    }
-
-    public double getPunktstandwoche() {
-        return punktstandwoche;
-    }
-
-    public void setPunktstandwoche(double punktstandwoche) {
-        this.punktstandwoche = punktstandwoche;
-    }
-
-    public double getTaglicheBestanspunkte() {
-        return taglicheBestanspunkte;
-    }
-
-    public void setTaglicheBestanspunkte(double taglicheBestanspunkte) {
-        this.taglicheBestanspunkte = taglicheBestanspunkte;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void taglichePunktstand(){
-        punktstandwoche +=punktstandtag;
-        LocalTime now = LocalTime.now();
-        if (now.getHour() >= 23) {
-            punktstandtag= 0;
-        }
-    }
-    public void setTaglicheBestanspunkte1(double punkte){
-        punktstandtag +=punkte;
-        taglicheBestanspunkte=punkte;
-    }
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public int getAge() {
-        LocalDate now = LocalDate.now();
-        int age = now.getYear() - birthdate.getYear();
-        if (now.getMonthValue() < birthdate.getMonthValue() ||
-                (now.getMonthValue() == birthdate.getMonthValue() && now.getDayOfMonth() < birthdate.getDayOfMonth())) {
-            age--;
-        }
-        return age;
-    }
-    /**
-     @RequiresApi(api = Build.VERSION_CODES.O)
-     public void setTaglicheBestanspunkte2(double points) {
-     // Calculate the daily points earned from exercise
-     double exercisePoints = 0.0;
-
-     exercisePoints += Aktivitat.berechneVerbrannteKalorien();
-
-     double LebensMittelPoints = 0.0;
-     LebensMittelPoints+=points;
-     // Calculate the total points for the day
-     double totalPoints = points - LebensMittelPoints + exercisePoints;
-
-     // Set the daily points to the maximum of the total points and 0
-     taglicheBestanspunkte2 = Math.max(totalPoints  , 0.0);
-     }
-
-     **/
-
-
-    public void addTaglicheBestanspunkte(double punkte){
-        punktstandtag +=punkte;
-
-    }
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void setPunktZahl(double punkte) {
-        int punktZahl = 0;
-        switch (gender) {
-            case MALE:
-                punktZahl += 15;
-                break;
-            case FEMALE:
-                punktZahl += 7;
-                break;
-            case DIVERS:
-                punktZahl += 15;
-                break;
-        }
-
-        // Points based on age
-        int age = getAge();
-        if (age >= 18 && age <= 20) {
-            punktZahl += 5;
-        } else if (age >= 21 && age <= 35) {
-            punktZahl += 4;
-        } else if (age >= 36 && age <= 50) {
-            punktZahl += 3;
-        } else if (age >= 51 && age <= 65) {
-            punktZahl += 2;
-        } else if (age > 66) {
-            punktZahl += 1;
-        }
-
-        // Points based on height
-        double height = getHeight();
-        if (height < 1.60) {
-            punktZahl += 1;
-        } else {
-            punktZahl += 2;
-        }
-
-        // Points based on weight
-        double initialWeight = getWeight();
-        int weightPoints = (int) Math.floor(initialWeight / 10);
-        punktZahl += weightPoints;
-
-        // Points based on activity level
-        switch (aktivitaetslevel) {
-            case NIEDRIG:
-                punktZahl += 1;
-                break;
-            case MODERAT:
-                punktZahl += 2;
-                break;
-            case HOCH:
-                punktZahl += 4;
-                break;
-            case EXTREM:
-                punktZahl += 6;
-                break;
-        }
-        // set the total points
-        setPunktZahl(PunktZahl);
-    }
-
-
 }
-
 
 
 

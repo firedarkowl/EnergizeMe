@@ -1,4 +1,4 @@
-package com.example.EnergizeMe.myfirstapp.Logik;
+/*package com.example.EnergizeMe.myfirstapp.Logik;
 
 
 
@@ -58,3 +58,4 @@ public class VerzehrteNahrungsmittel {
         return String.format("%s (%s) am %s, %.2f g", benutzer,lebensMittel.getName(),lebensMittel.getNaehrwerte(), datum, menge);
     }
 }
+*/
