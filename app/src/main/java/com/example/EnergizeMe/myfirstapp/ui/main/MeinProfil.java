@@ -18,6 +18,7 @@ public class MeinProfil extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMeinProfilBinding binding;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,4 +48,6 @@ public class MeinProfil extends AppCompatActivity {
     return NavigationUI.navigateUp(navController, appBarConfiguration)
             || super.onSupportNavigateUp();
     }
+
+
 }
