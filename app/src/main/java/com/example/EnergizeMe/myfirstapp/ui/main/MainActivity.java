@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
                     EditText txt2 = findViewById(R.id.nachname);
                     String nachname = txt2.getText().toString();
 
+                    EditText txt3 = findViewById(R.id.alter);
+                    String altereingegeben = txt3.getText().toString();
+                    int alter = Integer.parseInt(altereingegeben);
+
                     Toast.makeText(MainActivity.this, "Willkommen " + vorname + " " + nachname, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Bitte gib deine Daten ein!", Toast.LENGTH_SHORT).show();

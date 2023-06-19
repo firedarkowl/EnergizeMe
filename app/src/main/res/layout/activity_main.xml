@@ -53,6 +53,25 @@
                 android:textSize="15sp"></EditText>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/alter"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="#7ABCBF5E"
+                android:hint="Dein ALter"
+                android:padding="15dp"
+                android:text="@string/vorname"
+                android:textAlignment="center"
+                android:textSize="15sp"></EditText>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
         <Button
             android:id="@+id/button_create"
             android:layout_width="wrap_content"
