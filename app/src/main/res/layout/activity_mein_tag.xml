@@ -163,9 +163,73 @@
             android:text = "Meine Punkte"
             android:textSize = "25dp"
             android:textStyle="bold"
-            android:background="@color/rosa_1"
-            />
+            android:background="@color/rosa_1"/>
 
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Punkte pro Tag"
+                    android:layout_marginBottom="10dp" />
+
+                <ProgressBar
+                    android:id="@+id/pointsPerDayProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressTint="@color/blau_2"/>
+
+            </LinearLayout>
+
+
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verbleibende Punkte" />
+
+            <ProgressBar
+                android:id="@+id/remainingPointsProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:max="100"
+                android:progress="75"
+                android:progressTint="@color/gelb_2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verbrauchte Punkte" />
+
+            <ProgressBar
+                android:id="@+id/consumedPointsProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:max="100"
+                android:progress="25"
+                android:progressTint="@color/grün_2"/>
+
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
