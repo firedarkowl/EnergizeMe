@@ -18,8 +18,8 @@ public class AktivitatTest {
     @Before
     public void setup() {
         // Set up a sample user for testing
-        benutzer = new Benutzer("John", Gender.MALE, LocalDate.of(1990, 1, 1),
-                180, 80.0, Ernaehrungsziel.ABNEHMEN, Aktivitaetslevel.MODERAT);
+        benutzer = new Benutzer("John", Gender.MALE,
+                180, 80.0,33, Ernaehrungsziel.ABNEHMEN, Aktivitaetslevel.MODERAT);
         // Create an Aktivitat object
         aktivitat = new Aktivitat("Leicht Sport", LocalDate.now(), 60, benutzer);
         Map<String, Double> naehrwerte = new HashMap<>();
