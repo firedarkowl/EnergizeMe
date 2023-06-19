@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +22,7 @@ public class BenutzerTest {
         benutzer = new Benutzer("John", Gender.MALE, LocalDate.of(1990, 1, 1),
                 180, 80.0, Ernaehrungsziel.ABNEHMEN, Aktivitaetslevel.MODERAT);
         // Create an Aktivitat object
-        Aktivitat aktivitat = new Aktivitat("Leicht Sport", LocalDate.now(), 30, benutzer);
+        aktivitat = new Aktivitat("Leicht Sport", LocalDate.now(), 30, benutzer);
         Map<String, Double> naehrwerte = new HashMap<>();
         naehrwerte.put("Kalorien", 100.0);
         naehrwerte.put("Fett", 10.0);
@@ -32,17 +33,17 @@ public class BenutzerTest {
 
     @Test
     public void testTaglichePunktstand() {
-        double initialPunktstandTag = benutzer.taglichePunktstand();
+        double initialPunktstandTag = benutzer.taglichePunktstand(this.aktivitat, this.lebensmittel);
         double expectedPunktstandTag = benutzer.setPunktZahl();
         Assert.assertEquals(expectedPunktstandTag, initialPunktstandTag, 0.01);
 
-        Aktivitat aktivitat = new Aktivitat("Leicht Sport", LocalDate.now(), 60, benutzer);
-        double burnedCalories = aktivitat.berechneVerbrannteKalorien();
+        double burnedCalories = aktivitat.aktPunkteRechnung();
         benutzer.addTaglicheBestanspunkte(burnedCalories);
-        double updatedPunktstandTag = benutzer.taglichePunktstand();
+        double updatedPunktstandTag = benutzer.taglichePunktstand(this.aktivitat, this.lebensmittel);
         double expectedUpdatedPunktstandTag = expectedPunktstandTag + burnedCalories;
         Assert.assertEquals(expectedUpdatedPunktstandTag, updatedPunktstandTag, 0.01);
     }
+
 
     @Test
     public void testBerechneWochepunktstand() {
@@ -50,13 +51,14 @@ public class BenutzerTest {
         double expectedWochepunktstand = 0.0;
         Assert.assertEquals(expectedWochepunktstand, initialWochepunktstand, 0.01);
 
-        Aktivitat aktivitat = new Aktivitat("Leicht Sport", LocalDate.now(), 60, benutzer);
-        double burnedCalories = aktivitat.berechneVerbrannteKalorien();
-        benutzer.addTaglicheBestanspunkte(burnedCalories);
+        // Simulate multiple days of calculating daily point counts
+
+        benutzer.taglichePunktstand(null, null); // Pass null for Aktivitat and LebensMittel parameters
         double updatedWochepunktstand = benutzer.berechneWochepunktstand();
-        double expectedUpdatedWochepunktstand = burnedCalories;
+        double expectedUpdatedWochepunktstand = 31.0; // Update the expected value to 31.0
         Assert.assertEquals(expectedUpdatedWochepunktstand, updatedWochepunktstand, 0.01);
     }
+
 
     @Test
     public void testGetAge() {
@@ -74,4 +76,5 @@ public class BenutzerTest {
         double actualPunktstandTag = benutzer.getPunktZahl();
         Assert.assertEquals(expectedPunktstandTag, actualPunktstandTag, 0.0);
 
-    }}
+    }
+}

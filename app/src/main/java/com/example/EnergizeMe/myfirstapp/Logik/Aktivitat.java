@@ -1,5 +1,7 @@
 package com.example.EnergizeMe.myfirstapp.Logik;
+
 import android.os.Build;
+
 import androidx.annotation.RequiresApi;
 
 import com.example.EnergizeMe.myfirstapp.Logik.Benutzer;
@@ -7,7 +9,9 @@ import com.example.EnergizeMe.myfirstapp.Logik.Benutzer;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-/**Diese Klasse implemntiert den Aktivität von den Nutzer von Energize-Me App*/
+/**
+ * Diese Klasse implemntiert den Aktivität von den Nutzer von Energize-Me App
+ */
 public class Aktivitat {
 
     private Benutzer benutzer;
@@ -16,29 +20,31 @@ public class Aktivitat {
     private int dauer;
     private LocalDate lastEvent;
 
-    public Aktivitat(String sportArt,LocalDate lastEvent,int dauer, Benutzer benutzer){
-        this.sportArt=sportArt;
-        this.lastEvent=lastEvent;
-        this.dauer=dauer;
-        this.benutzer=benutzer;
+    public Aktivitat(String sportArt, LocalDate lastEvent, int dauer, Benutzer benutzer) {
+        this.sportArt = sportArt;
+        this.lastEvent = lastEvent;
+        this.dauer = dauer;
+        this.benutzer = benutzer;
     }
+
     //Die Methode speichert auch den Betrag der Punkte, die täglich gespart werden dürfen,
     // und stellt sicher, dass diese Punkte nicht verfallen, solange sie innerhalb von 7 Tagen verwendet werden.
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public double berechneVerbrannteKalorien() {
+    public double aktPunkteRechnung() {
         double aktPunkte = 0.0;
-        if (sportArt != null &&sportArt.equals("Leicht Sport")) {
+        if (sportArt != null && sportArt.equals("Leicht Sport")) {
             //wtf ist das für eine hart gecodete Zahl?!
-            aktPunkte += (dauer * benutzer.getWeight() / 1940.0);
-        } else if (sportArt != null &&sportArt.equals("Mittel Intensiv")) {
-            aktPunkte += (dauer * benutzer.getWeight()) / 1400.0;
-        } else if (sportArt != null &&sportArt.equals("Intensiv Sport")) {
-            aktPunkte += (dauer * benutzer.getWeight()) / 560.0;
+            aktPunkte += Math.round(dauer * benutzer.getWeight() / 1940.0);
+        } else if (sportArt != null && sportArt.equals("Mittel Intensiv")) {
+            aktPunkte += Math.round(dauer * benutzer.getWeight()) / 1400.0;
+        } else if (sportArt != null && sportArt.equals("Intensiv Sport")) {
+            aktPunkte += Math.round(dauer * benutzer.getWeight()) / 560.0;
         } else {
             throw new IllegalArgumentException("Unbekannte Sportart: " + sportArt);
         }
-        benutzer.taglichePunktstand();
-        return aktPunkte;
+        benutzer.taglichePunktstand(this, null);
+        savedPoints = aktPunkte;
+        return Math.round(aktPunkte);
     }
 
     public Benutzer getBenutzer() {
@@ -55,6 +61,9 @@ public class Aktivitat {
     }
 
     public double getSavedPoints() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            aktPunkteRechnung();
+        }
         return savedPoints;
     }
 
@@ -77,7 +86,6 @@ public class Aktivitat {
     public void setLastEvent(LocalDate lastEvent) {
         this.lastEvent = lastEvent;
     }
-
 
 
 }

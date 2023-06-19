@@ -21,7 +21,7 @@ public class AktivitatTest {
         benutzer = new Benutzer("John", Gender.MALE, LocalDate.of(1990, 1, 1),
                 180, 80.0, Ernaehrungsziel.ABNEHMEN, Aktivitaetslevel.MODERAT);
         // Create an Aktivitat object
-        aktivitat = new Aktivitat("Leicht Sport", LocalDate.now(), 30, benutzer);
+        aktivitat = new Aktivitat("Leicht Sport", LocalDate.now(), 60, benutzer);
         Map<String, Double> naehrwerte = new HashMap<>();
         naehrwerte.put("Kalorien", 100.0);
         naehrwerte.put("Fett", 10.0);
@@ -31,8 +31,8 @@ public class AktivitatTest {
 
     @Test
     public void testBerechneVerbrannteKalorien_LeichtSport() {
-        double burnedCalories = aktivitat.berechneVerbrannteKalorien();
-        double expectedCalories = (60 * benutzer.getWeight() / 1940.0);
+        double burnedCalories = aktivitat.aktPunkteRechnung();
+        double expectedCalories = Math.round(60 * benutzer.getWeight() / 1940.0);
 
         Assert.assertEquals(expectedCalories, burnedCalories, 0.01);
     }
@@ -40,8 +40,8 @@ public class AktivitatTest {
     @Test
     public void testBerechneVerbrannteKalorien_MittelIntensiv() {
         aktivitat.setSportArt("Mittel Intensiv");
-        double burnedCalories = aktivitat.berechneVerbrannteKalorien();
-        double expectedCalories = (60 * benutzer.getWeight() / 1400.0);
+        double burnedCalories = aktivitat.aktPunkteRechnung();
+        double expectedCalories = Math.round(60 * benutzer.getWeight() / 1400.0);
 
         Assert.assertEquals(expectedCalories, burnedCalories, 0.01);
     }
@@ -49,8 +49,8 @@ public class AktivitatTest {
     @Test
     public void testBerechneVerbrannteKalorien_IntensivSport() {
         aktivitat.setSportArt("Intensiv Sport");
-        double burnedCalories = aktivitat.berechneVerbrannteKalorien();
-        double expectedCalories = (60 * benutzer.getWeight() / 560.0);
+        double burnedCalories = aktivitat.aktPunkteRechnung();
+        double expectedCalories = Math.round(60 * benutzer.getWeight() / 560.0);
 
         Assert.assertEquals(expectedCalories, burnedCalories, 0.01);
     }
@@ -58,6 +58,6 @@ public class AktivitatTest {
     @Test(expected = IllegalArgumentException.class)
     public void testBerechneVerbrannteKalorien_UnknownSportArt() {
         aktivitat.setSportArt("Unknown Sport");
-        aktivitat.berechneVerbrannteKalorien();
+        aktivitat.aktPunkteRechnung();
     }
 }

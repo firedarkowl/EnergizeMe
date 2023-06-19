@@ -1,4 +1,5 @@
 package com.example.EnergizeMe.myfirstapp.Logik;
+
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
@@ -8,18 +9,21 @@ import com.example.EnergizeMe.myfirstapp.Logik.Benutzer;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
-/**Ein Klasse , die implementiert, was ein Benutzer der App an einem Tag verbraucht */
+
+/**
+ * Ein Klasse , die implementiert, was ein Benutzer der App an einem Tag verbraucht
+ */
 
 public class LebensMittel {
 
     private Benutzer benutzer;
     private String name;
     private Map<String, Double> naehrwerte; // Key: Nährstoff, Value: Nährwert pro 100g
-
-    private double points;
+    private double lebPunkte;
+    private double portionGrosse;
 
     public LebensMittel(String name, Map<String, Double> naehrwerte, Benutzer benutzer) {
-        this.benutzer=benutzer;
+        this.benutzer = benutzer;
         this.name = name;
         this.naehrwerte = naehrwerte;
     }
@@ -37,14 +41,16 @@ public class LebensMittel {
 
     //diese Methode Berchnet den Punkte von ein Lebensmittel ein, und den Punkte am Taglichepunktstand addiert
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public double punkt(double portionsgroesse) {
+    public double lebPunkteRechnung(double portionsgroesse) {
         double kalorien = naehrwerte.get("Kalorien") * portionsgroesse / 100.0;
         double fett = naehrwerte.get("Fett") * portionsgroesse / 100.0;
         double ballaststoffe = Math.min(naehrwerte.get("Ballaststoffe"), 4.0) * portionsgroesse / 100.0;
-        points = Math.ceil((kalorien / 50.0 + fett / 12.0 - ballaststoffe / 5.0) * 2.0) / 2.0;
-        benutzer.taglichePunktstand();
-        return points;
+        lebPunkte = Math.ceil((kalorien / 50.0 + fett / 12.0 - ballaststoffe / 5.0) * 2.0) / 2.0;
+        benutzer.taglichePunktstand(null, this);
+        portionGrosse = portionsgroesse;
+        return Math.round(lebPunkte);
     }
+
     public Map<String, Double> getNaehrwerte() {
         return naehrwerte;
     }
@@ -61,8 +67,9 @@ public class LebensMittel {
         return name;
     }
 
-    public double getPoints() {
-        return points;
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public double getLebPunkte() {
+        return Math.round(lebPunkte);
     }
 
     public void setName(String name) {

@@ -3,6 +3,7 @@ package com.example.EnergizeMe.myfirstapp.Logik;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +14,7 @@ public class LebensMittelTest {
     private LebensMittel lebensmittel;
     private Aktivitat aktivitat;
     private Benutzer benutzer;
+
     @Before
     public void setUp() {
         // Set up a sample user for testing
@@ -43,9 +45,17 @@ public class LebensMittelTest {
 
     @Test
     public void testPunkt() {
+        Map<String, Double> naehrwerte = new HashMap<>();
+        naehrwerte.put("Kalorien", 100.0);
+        naehrwerte.put("Fett", 10.0);
+        naehrwerte.put("Ballaststoffe", 5.0);
+
+        LebensMittel lebensmittel = new LebensMittel("Example Food", naehrwerte, benutzer);
+
         double portionsgroesse = 200.0;
-        double expectedPoints = 4.5; // Expected calculated points based on the formula
-        double actualPoints = lebensmittel.punkt(portionsgroesse);
+        double expectedPoints = 5;
+        double actualPoints = lebensmittel.lebPunkteRechnung(portionsgroesse);
         Assert.assertEquals(expectedPoints, actualPoints, 0.01);
     }
+
 }

@@ -10,6 +10,7 @@ import java.time.LocalTime;
 /**
  * Diese Klasse implementiert den Nutzer der EnergizeMe-App.
  */
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class Benutzer {
     private String name;
     private Gender gender;
@@ -18,16 +19,16 @@ public class Benutzer {
     private double weight;
     private Ernaehrungsziel ernaehungsziel;
     private Aktivitaetslevel aktivitaetslevel;
-    private double punktstandtag;
-    private double punktstandwoche;
-    private double taglicheBestanspunkte;
+    private double punktStandTag;
+    private double punktStandWoche;
     private double PunktZahl;
 
-    private double wochepunktstand = 0; // Weekly points variable
-    private LocalDate startDate= LocalDate.now(); // Start date of the counting period
+
+    private LocalDate startDate = LocalDate.now(); // Start date of the counting period
     private int daysCounter = 0; // Counter for the number of days
     private LebensMittel lebensMittel;
     private Aktivitat aktivitat;
+
     public Benutzer(String name, Gender gender, LocalDate birthdate, int height, double weight, Ernaehrungsziel ernaehungsziel, Aktivitaetslevel aktivitaetslevel) {
         this.name = name;
         this.gender = gender;
@@ -44,33 +45,33 @@ public class Benutzer {
      * @return der tägliche Punktestand des Benutzers
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public double taglichePunktstand() {
+    public double taglichePunktstand(Aktivitat aktivitat, LebensMittel lebensMittel) {
 
-        punktstandtag = setPunktZahl();
-            if (aktivitat != null) {
-                punktstandtag += aktivitat.berechneVerbrannteKalorien();}
-            if(lebensMittel != null){
-                punktstandtag -= lebensMittel.getPoints();
-            }
+        punktStandTag = setPunktZahl();
+        if (aktivitat != null) {
+            punktStandTag += aktivitat.getSavedPoints();
+        }
+        if (lebensMittel != null) {
+            punktStandTag -= lebensMittel.getLebPunkte();
+        }
         LocalTime now = LocalTime.now();
         if (now.getHour() >= 23) {
-            punktstandtag = 0;
+            punktStandTag = 0;
         }
         LocalDate today = LocalDate.now();
         if (today.isAfter(startDate.plusDays(6))) {
             // Start of a new counting period (7 days), reset the weekly points
-            wochepunktstand = 0;
             startDate = today; // Update the startDate to the current date
             daysCounter = 0; // Reset the days counter
-            punktstandwoche = 0;
+            punktStandWoche = 0;
         }
-        punktstandwoche += punktstandtag;
+        punktStandWoche += punktStandTag;
         daysCounter++;
-        return punktstandtag;
+        return Math.round(punktStandTag);
     }
 
     public double berechneWochepunktstand() {
-        return wochepunktstand;
+        return Math.round(punktStandWoche);
     }
 
     /**
@@ -93,7 +94,7 @@ public class Benutzer {
      * Fügt die täglichen Bestanspunkte des Benutzers hinzu.
      */
     public void addTaglicheBestanspunkte(double punkte) {
-        punktstandtag += punkte;
+        punktStandTag += punkte;
     }
 
     /**
@@ -159,8 +160,9 @@ public class Benutzer {
         }
         // set the total points
         PunktZahl = punktZahl;
-    return  PunktZahl;
+        return Math.round(PunktZahl);
     }
+
     /**
      * Gibt die Punktzahl des Benutzers zurück.
      *
@@ -227,7 +229,7 @@ public class Benutzer {
     }
 
     public double getPunktstandtag() {
-        return punktstandtag;
+        return punktStandTag;
     }
 
 }
