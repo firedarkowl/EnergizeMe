@@ -105,14 +105,18 @@
                     android:textSize="18dp"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/gender_info"
-                    android:layout_width="207dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="weiblich"
-                    android:textSize="18dp"
-                    android:textStyle="italic" />
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textStyle="italic"
+                    android:text="Geschlecht" />
+
+
+
 
                 <Button
                     android:id="@+id/gender_change"
@@ -144,14 +148,16 @@
                     android:textSize="18dp"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/height_info"
-                    android:layout_width="207dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="173 cm"
-                    android:textSize="18dp"
-                    android:textStyle="italic" />
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textStyle="italic"
+                    android:text="Größe" />
+
 
                 <Button
                     android:id="@+id/height_change"
@@ -183,14 +189,16 @@
                     android:textSize="18dp"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/weight_info"
-                    android:layout_width="207dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="65 kg"
-                    android:textSize="18dp"
-                    android:textStyle="italic" />
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textStyle="italic"
+                    android:text="Gewicht" />
+
 
                 <Button
                     android:id="@+id/weight_change"
@@ -222,14 +230,18 @@
                     android:textSize="18dp"
                     android:textStyle="bold" />
 
-                <TextView
+
+                <EditText
                     android:id="@+id/activity_info"
-                    android:layout_width="207dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Überwiegend sitzend"
-                    android:textSize="18dp"
-                    android:textStyle="italic" />
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textStyle="italic"
+                    android:text="Tätigkeit" />
+
+
 
                 <Button
                     android:id="@+id/activity_change"
