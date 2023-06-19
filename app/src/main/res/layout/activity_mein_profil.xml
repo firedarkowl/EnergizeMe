@@ -217,7 +217,7 @@
             <LinearLayout
                 android:id="@+id/activity_container"
                 android:layout_width="wrap_content"
-                android:layout_height="94dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="13dp"
                 android:orientation="horizontal">
 
@@ -238,9 +238,8 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="text"
-                    android:textStyle="italic"
-                    android:text="Tätigkeit" />
-
+                    android:text="Tätigkeit"
+                    android:textStyle="italic" />
 
 
                 <Button
