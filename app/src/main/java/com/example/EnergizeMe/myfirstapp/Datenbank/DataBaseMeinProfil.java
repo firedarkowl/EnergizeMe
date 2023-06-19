@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-public class DataBaseMasse extends SQLiteOpenHelper {
+public class DataBaseMeinProfil extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "masse.db";
     public static final String TABLE_NAME = "masse_table";
 
@@ -19,13 +19,10 @@ public class DataBaseMasse extends SQLiteOpenHelper {
     public static final String COL_5 = "GEWICHT";
     public static final String COL_6 = "ZIEL";
     public static final String COL_7 = "TAETIGKEITSLEVEL";
-    public static final String COL_8 = "TAEGLICHEPUNKTE";
-    public static final String COL_9 = "PUNKTESTANDTAG";
-    public static final String COL_10 = "PUNKTESTANDWOCHE";
-
+    
     public static final String COL_11 = "BENUTZERID";
 
-    public DataBaseMasse(@Nullable Context context) {
+    public DataBaseMeinProfil(@Nullable Context context) {
         super(context,DATABASE_NAME,null, 1);
     }
 
@@ -33,7 +30,7 @@ public class DataBaseMasse extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME + " (MASSEID INTEGER PRIMARY KEY AUTOINCREMENT, GEBDATUM TEXT, GESCHLECHT TEXT" +
-                ",GEWICHT INTEGER, ZIEL TEXT, TAETIGKEITSLEVEL INTEGER, TAEGLICHEPUNKTE INTEGER, PUNKTESTANDTAG INTEGER, PUNKTESTANDWOCHE INTEGER, BENUTZERID INTEGER," +
+                ",GEWICHT INTEGER, ZIEL TEXT, TAETIGKEITSLEVEL INTEGER, BENUTZERID INTEGER," +
                 " FOREIGN KEY (BENUTZERID) REFERENCES DataBaseHelperBenutzer(ID)) ");
 
     }
@@ -46,7 +43,7 @@ public class DataBaseMasse extends SQLiteOpenHelper {
 
     public boolean insertData( String gebDatum,
                               String geschlecht, String groesse,String gewicht, String ziel,
-                              String taetigkeitslevel, String taeglichePunkte, String punktestandtag, String punktestandwoche) {
+                              String taetigkeitslevel) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, gebDatum);
@@ -55,9 +52,7 @@ public class DataBaseMasse extends SQLiteOpenHelper {
         contentValues.put(COL_5, gewicht);
         contentValues.put(COL_6, ziel);
         contentValues.put(COL_7, taetigkeitslevel);
-        contentValues.put(COL_8, taeglichePunkte);
-        contentValues.put(COL_9, punktestandtag);
-        contentValues.put(COL_10, punktestandwoche);
+
         // wenn db.insert -1 returned = Fehler, wenn ID der Zeile ausgegeben = hat geklappt
         long result = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1) {
@@ -75,7 +70,7 @@ public class DataBaseMasse extends SQLiteOpenHelper {
 
     public boolean updateData(String masseid, String gebDatum,
                               String geschlecht, String groesse,String gewicht, String ziel,
-                              String taetigkeitslevel, String taeglichePunkte, String punktestandtag, String punktestandwoche) {
+                              String taetigkeitslevel) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1, masseid);
@@ -85,9 +80,7 @@ public class DataBaseMasse extends SQLiteOpenHelper {
         contentValues.put(COL_5, gewicht);
         contentValues.put(COL_6, ziel);
         contentValues.put(COL_7, taetigkeitslevel);
-        contentValues.put(COL_8, taeglichePunkte);
-        contentValues.put(COL_9, punktestandtag);
-        contentValues.put(COL_10, punktestandwoche);
+
         db.update(TABLE_NAME, contentValues, "nutzerid = ?", new String[] { masseid });
         return true;
     }

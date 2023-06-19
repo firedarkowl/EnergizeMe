@@ -1,33 +1,311 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.example.EnergizeMe.myfirstapp.ui.main.MeinProfil">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-    <com.google.android.material.appbar.AppBarLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+
+        <TextView
+            android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+            android:layout_height="match_parent"
+            android:background="@color/green_swamp"
+            android:gravity="center"
+            android:minHeight="?actionBarSize"
+            android:padding="@dimen/appbar_padding"
+            android:text="Mein Profil"
+            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="10dp" />
 
-    <include layout="@layout/content_mein_profil" />
+        <RelativeLayout
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="192dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@drawable/grad"
+            android:paddingBottom="18dp">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <RelativeLayout
+                android:id="@+id/imageUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/circle_border">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="9dp"
+                    android:layout_marginBottom="9dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/profil"
+                    android:padding="7dp"
+                    android:scaleType="centerInside" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="262dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageUser"
+                android:fontFamily="@font/font_by_rosie"
+                android:padding="7dp"
+                android:text="Max Mustermann"
+                android:textColor="@color/white"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/font_by_rosie"
+                android:text="Geburtstag: 22.05.2003"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/gender_container"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:id="@+id/gender"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Geschlecht"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/gender_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textStyle="italic"
+                    android:text="Geschlecht" />
+
+
+
+
+                <Button
+                    android:id="@+id/gender_change"
+                    android:layout_width="115dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/green_bayleaf"
+                    android:text="Ändern" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/separator_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+            <LinearLayout
+                android:id="@+id/height_container"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="13dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/height"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Größe"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/height_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textStyle="italic"
+                    android:text="Größe" />
+
+
+                <Button
+                    android:id="@+id/height_change"
+                    android:layout_width="115dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/green_bayleaf"
+                    android:text="Ändern" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/separator_line4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+            <LinearLayout
+                android:id="@+id/weight_container"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="13dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/weight"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Gewicht"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/weight_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textStyle="italic"
+                    android:text="Gewicht" />
+
+
+                <Button
+                    android:id="@+id/weight_change"
+                    android:layout_width="115dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/green_bayleaf"
+                    android:text="Ändern" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/separator_line3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+            <LinearLayout
+                android:id="@+id/activity_container"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginTop="13dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/activity"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tätigkeit"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/activity_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text="Tätigkeit"
+                    android:textStyle="italic" />
+
+
+                <Button
+                    android:id="@+id/activity_change"
+                    android:layout_width="115dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/green_bayleaf"
+                    android:text="Ändern" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/goal_container"
+                android:layout_width="match_parent"
+                android:layout_height="115dp"
+                android:background="@drawable/background_box"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_by_rosie"
+                    android:text="Das ist mein Ernährungsziel"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"></Spinner>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/delete_profile_container"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/delete_profil"
+                    android:layout_width="160dp"
+                    android:layout_height="45dp"
+                    android:backgroundTint="@color/md_theme_light_error"
+                    android:text="Profil löschen"
+                    android:textColor="@android:color/white"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
