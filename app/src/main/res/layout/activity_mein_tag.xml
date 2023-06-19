@@ -1,33 +1,75 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:background="@color/gelb_1"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/title"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/grün_2"
-            android:gravity="center"
-            android:minHeight="?actionBarSize"
-            android:padding="@dimen/appbar_padding"
-            android:text="Mein Tag"
-            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_weight="0.75"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/grün_2"
+                android:gravity="center"
+                android:minHeight="?actionBarSize"
+                android:padding="@dimen/appbar_padding"
+                android:text="Mein Tag"
+                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id = "@+id/profile"
+                android:layout_weight="0.25"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/grün_2"
+                android:src="@drawable/avocado_profile"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonMeals"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mahlzeiten"
+                android:backgroundTint="@color/gelb_sandwisp"
+                android:textColor="@color/black"
+                android:textSize="16dp"/>
+
+            <Button
+                android:id="@+id/buttonActivities"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Aktivitäten"
+                android:backgroundTint="@color/rosa_3"
+                android:textColor="@color/black"
+                android:textSize="16dp"/>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/mein_stand"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/gelb_1"
             android:gravity="left"
             android:paddingLeft="10dp"
@@ -38,114 +80,109 @@
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/gelb_1"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/points"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/gruen"
+                    android:gravity="center"
+                    android:hint="0"
+                    android:textSize="3mm"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:text="Punkte"
+                    android:textSize="16dp"/>
 
-
-                    <TextView
-                        android:id="@+id/points"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/gruen"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:textSize="3mm"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Punkte" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/protein"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/gelb"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:textSize="3mm"
-                        android:textStyle="bold" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Protein" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/kohlenhydrate"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/blau"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:textSize="3mm"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kohlenhydrate" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/fett"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/rot"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:textSize="3mm"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fett" />
-
-                </LinearLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/protein"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/gelb"
+                    android:gravity="center"
+                    android:hint="0"
+                    android:textSize="3mm"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Protein"
+                    android:textSize="16dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/kohlenhydrate"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/blau"
+                    android:gravity="center"
+                    android:hint="0"
+                    android:textSize="3mm"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kohlenhydrate"
+                    android:textSize="16dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/fett"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/rot"
+                    android:gravity="center"
+                    android:hint="0"
+                    android:textSize="3mm"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fett"
+                    android:textSize="16dp"/>
+
+            </LinearLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -153,13 +190,12 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/rosa_1"
+        android:background="@color/rosa_2"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:paddingLeft="10dp"
             android:text="Meine Punkte"
             android:textSize="25dp"
@@ -170,13 +206,13 @@
             android:layout_height="wrap_content"
             android:columnCount="2"
             android:rowCount="3"
-
             android:useDefaultMargins="true">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Punkte pro Tag" />
+                android:text="Punkte pro Tag"
+                android:textSize="16dp"/>
 
             <ProgressBar
                 android:id="@+id/pointsPerDayProgressBar"
@@ -188,11 +224,11 @@
                 android:progress="100"
                 android:progressTint="@color/blau_2" />
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Verbleibende Punkte" />
+                android:text="Verbleibende Punkte"
+                android:textSize="16dp"/>
 
             <ProgressBar
                 android:id="@+id/remainingPointsProgressBar"
@@ -207,7 +243,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Verbrauchte Punkte" />
+                android:text="Verbrauchte Punkte"
+                android:textSize="16dp"/>
 
             <ProgressBar
                 android:id="@+id/consumedPointsProgressBar"
@@ -232,7 +269,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:src="@drawable/avo2"></ImageView>
+                android:src="@drawable/avo2" />
 
             <ImageView
                 android:id="@+id/aktivität"
@@ -240,10 +277,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:src="@drawable/avo1"></ImageView>
+                android:src="@drawable/avo1" />
 
         </LinearLayout>
-
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
