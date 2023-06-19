@@ -27,33 +27,33 @@
                 android:minHeight="?actionBarSize"
                 android:padding="@dimen/appbar_padding"
                 android:text="Mein Tag"
+                android:textStyle="bold"
+                android:textSize = "25dp"
                 android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-                android:background="@color/green_swamp"/>
+                android:background="@color/grün_2"/>
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text = "Deine Punkte heute: "
-                android:textSize = "20dp"
+                android:paddingLeft="10dp"
+                android:text = "Mein Stand"
+                android:textSize = "25dp"
+                android:textStyle="bold"
                 />
 
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <shape xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:shape="oval">
+                    <solid
+                        android:color="#48b3ff"/>
+                </shape>
 
-            <ProgressBar
-                style="@android:style/Widget.ProgressBar.Horizontal"
-                android:layout_width="175dp"
-                android:layout_height="20dp"
-                android:minHeight="20dip"
-                android:maxHeight="20dip"
-                android:id="@+id/progressBar"
-                />
-
-
-
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
