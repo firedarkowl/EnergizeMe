@@ -22,6 +22,9 @@ public class Benutzer {
     private double punktStandTag;
     private double punktStandWoche;
     private double PunktZahl;
+    private double aktPunkte;
+    private double lebPunkte;
+    private int age;
 
 
     private LocalDate startDate = LocalDate.now(); // Start date of the counting period
@@ -29,14 +32,14 @@ public class Benutzer {
     private LebensMittel lebensMittel;
     private Aktivitat aktivitat;
 
-    public Benutzer(String name, Gender gender, LocalDate birthdate, int height, double weight, Ernaehrungsziel ernaehungsziel, Aktivitaetslevel aktivitaetslevel) {
+    public Benutzer(String name, Gender gender, int height, double weight, int age, Ernaehrungsziel ernaehungsziel, Aktivitaetslevel aktivitaetslevel) {
         this.name = name;
         this.gender = gender;
-        this.birthdate = birthdate;
         this.height = height;
         this.weight = weight;
         this.ernaehungsziel = ernaehungsziel;
         this.aktivitaetslevel = aktivitaetslevel;
+        this.age=age;
     }
 
     /**
@@ -81,13 +84,13 @@ public class Benutzer {
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public int getAge() {
-        LocalDate now = LocalDate.now();
-        int age = now.getYear() - birthdate.getYear();
-        if (now.getMonthValue() < birthdate.getMonthValue() ||
-                (now.getMonthValue() == birthdate.getMonthValue() && now.getDayOfMonth() < birthdate.getDayOfMonth())) {
-            age--;
-        }
+
         return age;
+    }
+    public int setAge(int age){
+        this.age=age;
+        return age;
+
     }
 
     /**
@@ -230,6 +233,14 @@ public class Benutzer {
 
     public double getPunktstandtag() {
         return punktStandTag;
+    }
+    public double getLebPunkte() {
+        lebPunkte=getLebPunkte();
+        return lebPunkte;
+    }
+    public double getAktPunkte() {
+        aktPunkte=getAktPunkte();
+        return aktPunkte;
     }
 
 }
