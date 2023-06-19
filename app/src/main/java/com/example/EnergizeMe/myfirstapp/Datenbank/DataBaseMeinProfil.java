@@ -19,8 +19,7 @@ public class DataBaseMeinProfil extends SQLiteOpenHelper {
     public static final String COL_5 = "GEWICHT";
     public static final String COL_6 = "ZIEL";
     public static final String COL_7 = "TAETIGKEITSLEVEL";
-
-
+    
     public static final String COL_11 = "BENUTZERID";
 
     public DataBaseMeinProfil(@Nullable Context context) {

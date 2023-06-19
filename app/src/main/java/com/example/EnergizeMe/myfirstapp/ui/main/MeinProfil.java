@@ -38,10 +38,10 @@ public class MeinProfil extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         profilDB = new DataBaseMeinProfil(this);
-        geburtsdatum = (EditText) findViewById(R.id.birthday);
-        geschlecht = (EditText) findViewById(R.id.gender);
-        ziel = (EditText) findViewById(R.id.goal_container);
-        taetigkeitslevel = (EditText) findViewById(R.id.activity);
+        //geburtsdatum = (EditText)findViewById(R.id.)
+        //geburtsdatum = (EditText) findViewById(R.id.birthday);
+        geschlecht = (EditText)findViewById(R.id.gender_info);
+
 
 
         setSupportActionBar(binding.toolbar);
