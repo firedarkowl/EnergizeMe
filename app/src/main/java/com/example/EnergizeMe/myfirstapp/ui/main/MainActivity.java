@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
-
+    Button btn;
     DataBaseHelperBenutzer myDb;
     EditText editVorname, editNachname;
 
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        Button btn = (Button) findViewById(R.id.button_create);
+
 
         // von Lan
         myDb = new DataBaseHelperBenutzer(this);
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         editVorname = (EditText)findViewById(R.id.vorname);
         editNachname = (EditText)findViewById(R.id.nachname);
         btn = (Button)findViewById(R.id.button_create);
-        //addData();
+        addData();
 
         btn.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
 
                     EditText txt2 = findViewById(R.id.nachname);
                     String nachname = txt2.getText().toString();
+
+                    EditText txt3 = findViewById(R.id.alter);
+                    String altereingegeben = txt3.getText().toString();
+                    int alter = Integer.parseInt(altereingegeben);
 
                     Toast.makeText(MainActivity.this, "Willkommen " + vorname + " " + nachname, Toast.LENGTH_SHORT).show();
                 } else {
@@ -93,12 +97,12 @@ public class MainActivity extends AppCompatActivity {
         });*/
     }
 
-/*    public void addData() {
-        createButton.setOnClickListener(
+    public void addData() {
+        btn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //noch in bearbeitung
+
                         boolean isInserted = myDb.insertData(editVorname.getText().toString(),
                                 editNachname.getText().toString());
                         if(isInserted==true) {
@@ -109,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-    }*/
+    }
 
     /**
      *Hilfsmethode: checkt ob der User seinen Namen und Nachnamen eingegeben hat
