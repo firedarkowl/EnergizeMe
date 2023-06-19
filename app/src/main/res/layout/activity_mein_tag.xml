@@ -191,6 +191,7 @@
                     android:progress="100"
                     android:progressTint="@color/blau_2"/>
 
+
             </LinearLayout>
 
 
