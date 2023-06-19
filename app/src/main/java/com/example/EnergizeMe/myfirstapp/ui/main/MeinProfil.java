@@ -2,6 +2,7 @@ package com.example.EnergizeMe.myfirstapp.ui.main;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -9,6 +10,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.EnergizeMe.myfirstapp.Datenbank.DataBaseMeinProfil;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMeinProfilBinding;
 import com.google.android.material.snackbar.Snackbar;
@@ -17,6 +19,15 @@ public class MeinProfil extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMeinProfilBinding binding;
+    private DataBaseMeinProfil profilDB;
+    private EditText geburtsdatum;
+    private EditText geschlecht;
+    private EditText goesse;
+    private EditText gewicht;
+    private EditText ziel;
+    private EditText taetigkeitslevel;
+
+
 
 
     @Override
@@ -25,6 +36,13 @@ public class MeinProfil extends AppCompatActivity {
 
         binding = ActivityMeinProfilBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        profilDB = new DataBaseMeinProfil(this);
+        geburtsdatum = (EditText) findViewById(R.id.birthday);
+        geschlecht = (EditText) findViewById(R.id.gender);
+        ziel = (EditText) findViewById(R.id.goal_container);
+        taetigkeitslevel = (EditText) findViewById(R.id.activity);
+
 
         setSupportActionBar(binding.toolbar);
 
