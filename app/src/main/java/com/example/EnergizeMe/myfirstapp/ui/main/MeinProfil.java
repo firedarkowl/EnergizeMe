@@ -3,6 +3,7 @@ package com.example.EnergizeMe.myfirstapp.ui.main;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -21,7 +22,7 @@ public class MeinProfil extends AppCompatActivity {
     private DataBaseMeinProfil profilDB;
     private EditText geburtsdatum;
     private EditText geschlecht;
-    private EditText goesse;
+    private EditText groesse;
     private EditText gewicht;
     private EditText ziel;
     private EditText taetigkeitslevel;
@@ -37,11 +38,17 @@ public class MeinProfil extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         profilDB = new DataBaseMeinProfil(this);
-        //geburtsdatum = (EditText)findViewById(R.id.)
-        //geburtsdatum = (EditText) findViewById(R.id.birthday);
+
         geschlecht = (EditText)findViewById(R.id.gender_info);
+        groesse = (EditText)findViewById(R.id.height_info);
+        gewicht = (EditText)findViewById(R.id.weight_info);
+        ziel = (EditText)findViewById(R.id.weight_info);
+        taetigkeitslevel = (EditText)findViewById(R.id.activity_info);
 
 
+
+        Spinner spinner = findViewById(R.id.spinner);
+        String selectedValue = spinner.getSelectedItem().toString();
 
         setSupportActionBar(binding.toolbar);
 

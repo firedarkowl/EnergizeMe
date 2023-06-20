@@ -15,7 +15,6 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
     public static final String COL_2 = "VORNAME";
     public static final String COL_3 = "NACHNAME";
 
-
     public DataBaseHelperBenutzer(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
 

@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     DataBaseHelperBenutzer myDb;
     EditText editVorname, editNachname;
 
-    //private Button createButton;
+
 
     private String PREF_NAME = null;
     private String PREF_NACHNAME = null;
