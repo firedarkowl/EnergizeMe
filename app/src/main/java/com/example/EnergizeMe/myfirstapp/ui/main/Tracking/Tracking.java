@@ -1,23 +1,17 @@
-package com.example.EnergizeMe.myfirstapp.ui.main;
+package com.example.EnergizeMe.myfirstapp.ui.main.Tracking;
 
 import android.os.Bundle;
-
-import com.example.myfirstapp.R;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
-import androidx.core.view.WindowCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityTrackingBinding;
 
 import java.util.ArrayList;

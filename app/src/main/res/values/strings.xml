@@ -55,4 +55,7 @@
     </string>
     <string name="title_activity_mein_profil">MeinProfil</string>
     <string name="title_activity_tracking">Tracking</string>
+    <string name="title_activity_tracking_lebensmittel">Tracking_Lebensmittel</string>
+    <string name="title_activity_tracked">Activity_Tracked</string>
+    <string name="title_activity_lebensmittel_tracked">Lebensmittel_Tracked</string>
 </resources>

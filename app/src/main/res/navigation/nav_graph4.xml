@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph4"
-    app:startDestination="@id/First3Fragment">
+    app:startDestination="@id/First5Fragment">
 
     <fragment
-        android:id="@+id/First3Fragment"
-        android:name="com.example.myfirstapp.First3Fragment"
+        android:id="@+id/First5Fragment"
+        android:name="com.example.myfirstapp.ui.theme.First5Fragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first3">
+        tools:layout="@layout/fragment_first5">
 
         <action
-            android:id="@+id/action_First3Fragment_to_Second3Fragment"
-            app:destination="@id/Second3Fragment" />
+            android:id="@+id/action_First5Fragment_to_Second5Fragment"
+            app:destination="@id/Second5Fragment" />
     </fragment>
     <fragment
-        android:id="@+id/Second3Fragment"
-        android:name="com.example.myfirstapp.Second3Fragment"
+        android:id="@+id/Second5Fragment"
+        android:name="com.example.myfirstapp.ui.theme.Second5Fragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second3">
+        tools:layout="@layout/fragment_second5">
 
         <action
-            android:id="@+id/action_Second3Fragment_to_First3Fragment"
-            app:destination="@id/First3Fragment" />
+            android:id="@+id/action_Second5Fragment_to_First5Fragment"
+            app:destination="@id/First5Fragment" />
     </fragment>
 </navigation>
