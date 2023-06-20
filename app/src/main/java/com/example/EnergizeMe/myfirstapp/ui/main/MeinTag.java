@@ -25,11 +25,17 @@ public class MeinTag extends AppCompatActivity {
 
         //Text "Mein Tag"
         TextView titleTextView = findViewById(R.id.title);
+
         //Button für "MeinProfil" oben rechts (die Avocado)
         ImageView profileImageView = findViewById(R.id.profile);
+
+        //Mahlzeiten Button (de obere) -> klickst drauf und es sollen die heute dafür getrackten Punkte erscheinen
         Button mealsButton = findViewById(R.id.buttonMeals);
 
+        //Aktivität Button (der obere) -> klickst drauf und es sollen die heute getrackten Punke dafür erscheinen
         Button activitiesButton = findViewById(R.id.buttonActivities);
+
+        //
         TextView pointsPerDayTextView = findViewById(R.id.pointsPerDayTextView);
         ProgressBar pointsPerDayProgressBar = findViewById(R.id.pointsPerDayProgressBar);
         TextView remainingPointsTextView = findViewById(R.id.remainingPointsTextView);
