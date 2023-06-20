@@ -194,6 +194,7 @@
         android:orientation="vertical">
 
         <TextView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
@@ -209,6 +210,7 @@
             android:useDefaultMargins="true">
 
             <TextView
+                android:id = "@+id/pointsPerDayTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Punkte pro Tag"
@@ -225,6 +227,7 @@
                 android:progressTint="@color/blau_2" />
 
             <TextView
+                android:id = "@+id/remainingPointsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Verbleibende Punkte"
@@ -241,6 +244,7 @@
                 android:progressTint="@color/gelb_2" />
 
             <TextView
+                android:id = "@+id/consumedPointsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Verbrauchte Punkte"

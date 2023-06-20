@@ -21,12 +21,11 @@ public class MeinTag extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         //Text "Mein Tag"
         TextView titleTextView = findViewById(R.id.title);
 
-        //Button für "MeinProfil" oben rechts (die Avocado)
+        //Button für "MeinProfil" oben rechts (die Avocado) - soll noch als Button betrachtet werden, s Link unten
         ImageView profileImageView = findViewById(R.id.profile);
 
         //Mahlzeiten Button (de obere) -> klickst drauf und es sollen die heute dafür getrackten Punkte erscheinen
@@ -35,33 +34,47 @@ public class MeinTag extends AppCompatActivity {
         //Aktivität Button (der obere) -> klickst drauf und es sollen die heute getrackten Punke dafür erscheinen
         Button activitiesButton = findViewById(R.id.buttonActivities);
 
-        //
+        //Punkte pro Tag Text
         TextView pointsPerDayTextView = findViewById(R.id.pointsPerDayTextView);
+
+        //die Progressbar für die Punkte pro Tag
         ProgressBar pointsPerDayProgressBar = findViewById(R.id.pointsPerDayProgressBar);
+
+        //Punkte die noch übrig bleiben
         TextView remainingPointsTextView = findViewById(R.id.remainingPointsTextView);
+
+        //die Progressbar für die Punkte die noch übrig bleiben für den Tag
         ProgressBar remainingPointsProgressBar = findViewById(R.id.remainingPointsProgressBar);
+
+        //Verbrauchte Punkte
         TextView consumedPointsTextView = findViewById(R.id.consumedPointsTextView);
+
+        //die Progressbar zu den verbrauchten Punkten
         ProgressBar consumedPointsProgressBar = findViewById(R.id.consumedPointsProgressBar);
+
+        //"Buttons" zum Tacken von jeweils Lebensmittel/Mahzeit und aktivität
         ImageView lebensmittelImageView = findViewById(R.id.lebensmittel);
-        ImageView aktivitatImageView = findViewById(R.id.aktivitat);
+        ImageView aktivitatImageView = findViewById(R.id.aktivität);
 
         // Setze die Click Listener für die Buttons
         mealsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Logik für den Klick auf den "Mahlzeiten"-Button hier einfügen
+                // Logik für den Klick auf den "Mahlzeiten"-Button hier einfügen (für die obere)
             }
         });
 
         activitiesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Logik für den Klick auf den "Aktivitäten"-Button hier einfügen
+                // Logik für den Klick auf den "Aktivitäten"-Button hier einfügen (für die obere)
             }
         });
 
         // Weitere Initialisierungen und Anpassungen können hier durchgeführt werden
         // ...
 
+
+        //für ImageView als Button behandeln: https://www.geeksforgeeks.org/how-to-use-imageview-as-a-button-in-android/
     }
 }
