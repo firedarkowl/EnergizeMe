@@ -14,6 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.EnergizeMe.myfirstapp.Datenbank.DataBaseMeinProfil;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMeinProfilBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MeinProfil extends AppCompatActivity {
 
@@ -45,10 +46,10 @@ public class MeinProfil extends AppCompatActivity {
         ziel = (EditText)findViewById(R.id.weight_info);
         taetigkeitslevel = (EditText)findViewById(R.id.activity_info);
 
-
-
         Spinner spinner = findViewById(R.id.spinner);
         String selectedValue = spinner.getSelectedItem().toString();
+
+
 
         setSupportActionBar(binding.toolbar);
 
