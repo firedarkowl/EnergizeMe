@@ -5,5 +5,5 @@ package com.example.EnergizeMe.myfirstapp.Logik;
  */
 
 public enum Gender {
-    MALE, FEMALE, DIVERS;
+    MALE, FEMALE;
 }

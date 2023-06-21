@@ -114,9 +114,9 @@ public class Benutzer {
             case FEMALE:
                 punktZahl += 7;
                 break;
-            case DIVERS:
+            /*case DIVERS:
                 punktZahl += 15;
-                break;
+                break;*/
         }
 
         // Points based on age
