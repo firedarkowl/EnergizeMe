@@ -2,6 +2,7 @@ package com.example.EnergizeMe.myfirstapp.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -62,33 +63,23 @@ public class MeinTag extends AppCompatActivity {
         ImageView lebensmittelImageView = findViewById(R.id.lebensmittel);
         ImageView aktivitatImageView = findViewById(R.id.aktivität);
 
-        performButtonClickLogic();
-
-
-
-
-
-        // Setze die Click Listener für die Buttons
-        /*mealsButton.setOnClickListener(new View.OnClickListener() {
+        mealsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Logik für den Klick auf den "Mahlzeiten"-Button (für die obere)
-                Intent i = new Intent(getApplicationContext(), Lebensmittel_Tracked.class);
-                startActivity(i);
+                // Logik für den Klick auf den "Mahlzeiten"-Button (für den oberen Button)
+                Intent mealsIntent = new Intent(MeinTag.this, Lebensmittel_Tracked.class);
+                startActivity(mealsIntent);
             }
         });
 
         activitiesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Logik für den Klick auf den "Aktivitäten"-Button (für die obere)
-                Intent i = new Intent(getApplicationContext(), Activity_Tracked.class);
-                startActivity(i);
+                // Logik für den Klick auf den "Aktivitäten"-Button (für den oberen Button)
+                Intent activitiesIntent = new Intent(MeinTag.this, Activity_Tracked.class);
+                startActivity(activitiesIntent);
             }
-        });*/
-
-        // Weitere Initialisierungen und Anpassungen können hier durchgeführt werden
-        // ...
+        });
 
 
         //für ImageView als Button behandeln: https://www.geeksforgeeks.org/how-to-use-imageview-as-a-button-in-android/
