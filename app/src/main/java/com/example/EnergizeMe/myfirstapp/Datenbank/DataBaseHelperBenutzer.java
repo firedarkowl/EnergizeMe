@@ -14,6 +14,8 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
     public static final String COL_1 = "ID";
     public static final String COL_2 = "VORNAME";
     public static final String COL_3 = "NACHNAME";
+    public static final String COL_4 = "ALTER";
+
 
     public DataBaseHelperBenutzer(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -23,7 +25,7 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, VORNAME TEXT, NACHNAME TEXT) ");
+        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, VORNAME TEXT, NACHNAME TEXT, AGE TEXT) ");
     }
 
     @Override
@@ -32,12 +34,13 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String vorname, String nachname) {
+    public boolean insertData(String vorname, String nachname, String alter) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, vorname);
         contentValues.put(COL_3, nachname);
-        
+        contentValues.put(COL_4, alter);
+
         // wenn db.insert -1 returned = Fehler, wenn ID der Zeile ausgegeben = hat geklappt
         long result = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1) {
@@ -53,13 +56,14 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
         return res;
     }
 
-    public boolean updateData(String masseid, String vorname, String nachname) {
+    public boolean updateData(String masseid, String vorname, String nachname, String alter) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1, masseid);
         contentValues.put(COL_2, vorname);
         contentValues.put(COL_3, nachname);
-        
+        contentValues.put(COL_4, alter);
+
         db.update(TABLE_NAME, contentValues, "nutzerid = ?", new String[] { masseid });
         return true;
     }

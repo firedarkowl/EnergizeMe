@@ -28,9 +28,6 @@ public class MeinProfil extends AppCompatActivity {
     private EditText ziel;
     private EditText taetigkeitslevel;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

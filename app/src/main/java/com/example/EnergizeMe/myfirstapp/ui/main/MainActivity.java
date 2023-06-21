@@ -25,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     Button btn;
     DataBaseHelperBenutzer myDb;
-    EditText editVorname, editNachname;
+
+    // noch eins für Alter
+    EditText editVorname, editNachname,editAlter;
 
 
 
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         editVorname = (EditText)findViewById(R.id.vorname);
         editNachname = (EditText)findViewById(R.id.nachname);
+        editAlter = (EditText)findViewById(R.id.alter);
         btn = (Button)findViewById(R.id.button_create);
         addData();
 
@@ -66,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
                     EditText txt3 = findViewById(R.id.alter);
                     String altereingegeben = txt3.getText().toString();
                     int alter = Integer.parseInt(altereingegeben);
+
+
 
                     Toast.makeText(MainActivity.this, "Willkommen " + vorname + " " + nachname, Toast.LENGTH_SHORT).show();
                 } else {
@@ -104,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
 
                         boolean isInserted = myDb.insertData(editVorname.getText().toString(),
-                                editNachname.getText().toString());
+                                editNachname.getText().toString(),editAlter.toString());
                         if(isInserted==true) {
                             Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
                         } else {
