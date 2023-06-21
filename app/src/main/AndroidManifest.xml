@@ -15,6 +15,14 @@
         android:theme="@style/Theme.MyFirstApp"
         tools:targetApi="31">
         <activity
+            android:name=".Testtest"
+            android:exported="false"
+            android:label="@string/title_activity_testtest"
+            android:theme="@style/Theme.MyFirstApp" />
+        <activity
+            android:name=".test"
+            android:exported="false" />
+        <activity
             android:name="com.example.EnergizeMe.myfirstapp.ui.main.Tracked.Lebensmittel_Tracked"
             android:exported="false"
             android:label="@string/title_activity_lebensmittel_tracked"
@@ -35,7 +43,7 @@
             android:label="@string/title_activity_tracking"
             android:theme="@style/Theme.MyFirstApp" />
         <activity
-            android:name=".MeinProfil"
+            android:name="com.example.EnergizeMe.myfirstapp.ui.main.MeinProfil"
             android:exported="false"
             android:label="@string/title_activity_mein_profil"
             android:theme="@style/Theme.MyFirstApp" />

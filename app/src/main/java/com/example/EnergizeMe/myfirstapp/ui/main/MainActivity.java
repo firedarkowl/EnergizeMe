@@ -16,6 +16,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.EnergizeMe.myfirstapp.Datenbank.DataBaseHelperBenutzer;
+import com.example.EnergizeMe.myfirstapp.ui.main.Tracked.Lebensmittel_Tracked;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMainBinding;
 
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         editNachname = (EditText)findViewById(R.id.nachname);
         editAlter = (EditText)findViewById(R.id.alter);
         btn = (Button)findViewById(R.id.button_create);
-        addData();
+        //addData();
 
         btn.setOnClickListener((new View.OnClickListener() {
             @Override

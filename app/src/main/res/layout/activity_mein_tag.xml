@@ -309,7 +309,7 @@
                 android:src="@drawable/avo2"/>
 
             <ImageView
-                android:id="@+id/aktivität"
+                android:id="@+id/aktivitaet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

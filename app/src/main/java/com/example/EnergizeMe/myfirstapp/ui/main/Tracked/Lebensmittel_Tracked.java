@@ -1,7 +1,9 @@
 package com.example.EnergizeMe.myfirstapp.ui.main.Tracked;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -12,6 +14,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.EnergizeMe.myfirstapp.ui.main.MeinTag;
 import com.example.myfirstapp.R;
 
 public class Lebensmittel_Tracked extends AppCompatActivity {
@@ -34,6 +37,14 @@ public class Lebensmittel_Tracked extends AppCompatActivity {
         myListView = findViewById(R.id.myListView);
 
         // Weitere Anpassungen und Logik können hier durchgeführt werden
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Logik für den Klick auf den "Mahlzeiten"-Button (für den oberen Button)
+                Intent i = new Intent(Lebensmittel_Tracked.this, MeinTag.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override

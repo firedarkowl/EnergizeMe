@@ -1,9 +1,13 @@
 package com.example.EnergizeMe.myfirstapp.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -12,12 +16,12 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.EnergizeMe.myfirstapp.Datenbank.DataBaseMeinProfil;
 import com.example.myfirstapp.R;
-import com.example.myfirstapp.databinding.ActivityMeinProfilBinding;
+import com.example.myfirstapp.databinding.ActivityMainBinding;
 
 public class MeinProfil extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
-    private ActivityMeinProfilBinding binding;
+    private @NonNull ActivityMainBinding binding;
     private DataBaseMeinProfil profilDB;
     private EditText geburtsdatum;
     private EditText geschlecht;
@@ -25,13 +29,14 @@ public class MeinProfil extends AppCompatActivity {
     private EditText gewicht;
     private EditText ziel;
     private EditText taetigkeitslevel;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        binding = ActivityMeinProfilBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        //       setContentView(binding.getRoot());
+        setContentView(R.layout.activity_mein_profil);
 
         profilDB = new DataBaseMeinProfil(this);
 
@@ -41,9 +46,19 @@ public class MeinProfil extends AppCompatActivity {
         ziel = (EditText)findViewById(R.id.weight_info);
         taetigkeitslevel = (EditText)findViewById(R.id.activity_info);
 
+        back = findViewById(R.id.back);
         Spinner spinner = findViewById(R.id.spinner);
-        String selectedValue = spinner.getSelectedItem().toString();
-        ;
+        //tring selectedValue = spinner.getSelectedItem().toString();
+
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Logik für den Klick auf den "Mahlzeiten"-Button (für den oberen Button)
+                Intent i = new Intent(MeinProfil.this, MeinTag.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override

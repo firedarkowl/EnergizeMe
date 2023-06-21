@@ -9,6 +9,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.example.EnergizeMe.myfirstapp.ui.main.Tracked.Activity_Tracked;
 import com.example.EnergizeMe.myfirstapp.ui.main.Tracked.Lebensmittel_Tracked;
@@ -22,12 +26,14 @@ public class MeinTag extends AppCompatActivity {
     private TextView carbohydratesTextView;
     private TextView fatTextView;
     private ActivityMainBinding binding;
+    private AppBarConfiguration appBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+ //       setContentView(binding.getRoot());
+        setContentView(R.layout.activity_mein_tag);
 
         //Text "Mein Tag"
         TextView titleTextView = findViewById(R.id.title);
@@ -36,10 +42,10 @@ public class MeinTag extends AppCompatActivity {
         ImageView profileImageView = findViewById(R.id.profile);
 
         //Mahlzeiten Button (de obere) -> klickst drauf und es sollen die heute dafür getrackten Punkte erscheinen
-        Button mealsButton = findViewById(R.id.buttonMeals);
+        Button mealsButton = (Button) findViewById(R.id.buttonMeals);
 
         //Aktivität Button (der obere) -> klickst drauf und es sollen die heute getrackten Punke dafür erscheinen
-        Button activitiesButton = findViewById(R.id.buttonActivities);
+        Button activitiesButton = (Button) findViewById(R.id.buttonActivities);
 
         //Punkte pro Tag Text
         TextView pointsPerDayTextView = findViewById(R.id.pointsPerDayTextView);
@@ -61,14 +67,14 @@ public class MeinTag extends AppCompatActivity {
 
         //"Buttons" zum Tacken von jeweils Lebensmittel/Mahzeit und aktivität
         ImageView lebensmittelImageView = findViewById(R.id.lebensmittel);
-        ImageView aktivitatImageView = findViewById(R.id.aktivität);
+        ImageView aktivitatImageView = findViewById(R.id.aktivitaet);
 
         mealsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Logik für den Klick auf den "Mahlzeiten"-Button (für den oberen Button)
-                Intent mealsIntent = new Intent(MeinTag.this, Lebensmittel_Tracked.class);
-                startActivity(mealsIntent);
+                Intent i = new Intent(MeinTag.this, Lebensmittel_Tracked.class);
+                startActivity(i);
             }
         });
 
@@ -78,6 +84,15 @@ public class MeinTag extends AppCompatActivity {
                 // Logik für den Klick auf den "Aktivitäten"-Button (für den oberen Button)
                 Intent activitiesIntent = new Intent(MeinTag.this, Activity_Tracked.class);
                 startActivity(activitiesIntent);
+            }
+        });
+
+        profileImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Logik für den Klick auf den "Mahlzeiten"-Button (für den oberen Button)
+                Intent i = new Intent(MeinTag.this, MeinProfil.class);
+                startActivity(i);
             }
         });
 
@@ -95,5 +110,12 @@ public class MeinTag extends AppCompatActivity {
         startActivity(activitiesIntent);
 
         // Weitere Logik, die Sie hier ausführen möchten...
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        return NavigationUI.navigateUp(navController, appBarConfiguration)
+                || super.onSupportNavigateUp();
     }
 }
