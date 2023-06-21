@@ -5,6 +5,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -12,27 +13,31 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.myfirstapp.R;
-//import com.example.myfirstapp.databinding.ActivityTrackingBinding;
+import com.example.myfirstapp.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 
 public class Tracking extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
-    //private ActivityTrackingBinding binding;
+    private @NonNull ActivityMainBinding binding;
 
     private SearchView searchView;
     private ListView myListView;
 
     private ArrayList<String> arrayList;
+
     private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        //       setContentView(binding.getRoot());
+        setContentView(R.layout.activity_activity_tracking);
 
         searchView=findViewById(R.id.searchView);
-        myListView=findViewById(R.id.searchView);
+        myListView=findViewById(R.id.myListView);
 
         arrayList = new ArrayList<>();
         arrayList.add("Schnitzel mit Pommes");

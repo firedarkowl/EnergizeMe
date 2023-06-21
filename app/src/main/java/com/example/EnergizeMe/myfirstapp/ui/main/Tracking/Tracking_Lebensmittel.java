@@ -2,6 +2,7 @@ package com.example.EnergizeMe.myfirstapp.ui.main.Tracking;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -9,17 +10,19 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.myfirstapp.R;
-import com.example.myfirstapp.databinding.ActivityTrackingLebensmittelBinding;
+import com.example.myfirstapp.databinding.ActivityMainBinding;
 
 public class Tracking_Lebensmittel extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
- private ActivityTrackingLebensmittelBinding binding;
+ private @NonNull ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        //       setContentView(binding.getRoot());
+        setContentView(R.layout.activity_tracking_lebensmittel);
 //        binding = ActivityTrackingLebensmittelBinding.inflate(getLayoutInflater());
 //        setContentView(binding.getRoot());
 

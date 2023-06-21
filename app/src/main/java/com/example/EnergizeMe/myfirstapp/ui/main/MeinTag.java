@@ -16,6 +16,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.EnergizeMe.myfirstapp.ui.main.Tracked.Activity_Tracked;
 import com.example.EnergizeMe.myfirstapp.ui.main.Tracked.Lebensmittel_Tracked;
+import com.example.EnergizeMe.myfirstapp.ui.main.Tracking.Tracking;
+import com.example.EnergizeMe.myfirstapp.ui.main.Tracking.Tracking_Lebensmittel;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMainBinding;
 
@@ -35,8 +37,6 @@ public class MeinTag extends AppCompatActivity {
  //       setContentView(binding.getRoot());
         setContentView(R.layout.activity_mein_tag);
 
-        //Text "Mein Tag"
-        TextView titleTextView = findViewById(R.id.title);
 
         //Button für "MeinProfil" oben rechts (die Avocado) - soll noch als Button betrachtet werden, s Link unten
         ImageView profileImageView = findViewById(R.id.profile);
@@ -47,20 +47,11 @@ public class MeinTag extends AppCompatActivity {
         //Aktivität Button (der obere) -> klickst drauf und es sollen die heute getrackten Punke dafür erscheinen
         Button activitiesButton = (Button) findViewById(R.id.buttonActivities);
 
-        //Punkte pro Tag Text
-        TextView pointsPerDayTextView = findViewById(R.id.pointsPerDayTextView);
-
         //die Progressbar für die Punkte pro Tag
         ProgressBar pointsPerDayProgressBar = findViewById(R.id.pointsPerDayProgressBar);
 
-        //Punkte die noch übrig bleiben
-        TextView remainingPointsTextView = findViewById(R.id.remainingPointsTextView);
-
         //die Progressbar für die Punkte die noch übrig bleiben für den Tag
         ProgressBar remainingPointsProgressBar = findViewById(R.id.remainingPointsProgressBar);
-
-        //Verbrauchte Punkte
-        TextView consumedPointsTextView = findViewById(R.id.consumedPointsTextView);
 
         //die Progressbar zu den verbrauchten Punkten
         ProgressBar consumedPointsProgressBar = findViewById(R.id.consumedPointsProgressBar);
@@ -92,6 +83,24 @@ public class MeinTag extends AppCompatActivity {
             public void onClick(View v) {
                 // Logik für den Klick auf den "Mahlzeiten"-Button (für den oberen Button)
                 Intent i = new Intent(MeinTag.this, MeinProfil.class);
+                startActivity(i);
+            }
+        });
+
+        lebensmittelImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Logik für den Klick auf den "Mahlzeiten"-Button (für den oberen Button)
+                Intent i = new Intent(MeinTag.this, Tracking_Lebensmittel.class);
+                startActivity(i);
+            }
+        });
+
+        aktivitatImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Logik für den Klick auf den "Mahlzeiten"-Button (für den oberen Button)
+                Intent i = new Intent(MeinTag.this, Tracking.class);
                 startActivity(i);
             }
         });
