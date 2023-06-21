@@ -1,7 +1,6 @@
 package com.example.EnergizeMe.myfirstapp.ui.main;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -14,7 +13,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.EnergizeMe.myfirstapp.Datenbank.DataBaseMeinProfil;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMeinProfilBinding;
-import com.google.android.material.snackbar.Snackbar;
 
 public class MeinProfil extends AppCompatActivity {
 
@@ -45,23 +43,7 @@ public class MeinProfil extends AppCompatActivity {
 
         Spinner spinner = findViewById(R.id.spinner);
         String selectedValue = spinner.getSelectedItem().toString();
-
-
-
-        setSupportActionBar(binding.toolbar);
-
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAnchorView(R.id.fab)
-                        .setAction("Action", null).show();
-            }
-        });
+        ;
     }
 
     @Override

@@ -4,14 +4,13 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.EnergizeMe.myfirstapp.Logik.Benutzer;
-
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 /**
  * Diese Klasse implemntiert den Aktivität von den Nutzer von Energize-Me App
  */
+
+
 public class Aktivitat {
 
     private Benutzer benutzer;
@@ -33,7 +32,7 @@ public class Aktivitat {
     public double aktPunkteRechnung() {
         double aktPunkte = 0.0;
         if (sportArt != null && sportArt.equals("Leicht Sport")) {
-            //wtf ist das für eine hart gecodete Zahl?!
+            //zahlen kommen aus der Formel
             aktPunkte += Math.round(dauer * benutzer.getWeight() / 1940.0);
         } else if (sportArt != null && sportArt.equals("Mittel Intensiv")) {
             aktPunkte += Math.round(dauer * benutzer.getWeight()) / 1400.0;

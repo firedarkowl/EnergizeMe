@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.myfirstapp.databinding.FragmentSecond5Binding;
 
@@ -32,8 +31,8 @@ public class Second5Fragment extends Fragment {
         binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(Second5Fragment.this)
-                        .navigate(R.id.action_Second5Fragment_to_First5Fragment);
+                /*NavHostFragment.findNavController(Second5Fragment.this)
+                        .navigate(R.id.action_Second5Fragment_to_First5Fragment);*/
             }
         });
     }

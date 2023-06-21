@@ -12,14 +12,14 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.myfirstapp.R;
-import com.example.myfirstapp.databinding.ActivityTrackingBinding;
+//import com.example.myfirstapp.databinding.ActivityTrackingBinding;
 
 import java.util.ArrayList;
 
 public class Tracking extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
-    private ActivityTrackingBinding binding;
+    //private ActivityTrackingBinding binding;
 
     private SearchView searchView;
     private ListView myListView;

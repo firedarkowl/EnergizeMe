@@ -9,6 +9,8 @@ package com.example.EnergizeMe.myfirstapp.Logik;
  * EXTREM: Körperlich harte Arbeit, z.B. Bauarbeiter/in
  */
 
+//check
+
 public enum Aktivitaetslevel {
     NIEDRIG, MODERAT, HOCH, EXTREM
 }

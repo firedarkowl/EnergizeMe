@@ -58,8 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (youShallNotPass()) {
-                    Intent i = new Intent(getApplicationContext(), MeinTag.class);
-                    startActivity(i);
+
                     EditText txt1 = findViewById(R.id.vorname);
                     String vorname = txt1.getText().toString();
 
@@ -71,8 +70,9 @@ public class MainActivity extends AppCompatActivity {
                     int alter = Integer.parseInt(altereingegeben);
 
 
-
                     Toast.makeText(MainActivity.this, "Willkommen " + vorname + " " + nachname, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, MeinTag.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(MainActivity.this, "Bitte gib deine Daten ein!", Toast.LENGTH_SHORT).show();
                 }

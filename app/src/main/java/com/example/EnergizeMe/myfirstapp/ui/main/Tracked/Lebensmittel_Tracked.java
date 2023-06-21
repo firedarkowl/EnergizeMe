@@ -1,5 +1,51 @@
 package com.example.EnergizeMe.myfirstapp.ui.main.Tracked;
 
+
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import com.example.myfirstapp.R;
+
+public class Lebensmittel_Tracked extends AppCompatActivity {
+    private ImageView back;
+    private TextView title;
+    private TextView gender;
+    private ListView myListView;
+
+    private AppBarConfiguration appBarConfiguration;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_lebensmittel_tracked);
+
+        // Initialisiere die Views
+        back = findViewById(R.id.back);
+        title = findViewById(R.id.title);
+        gender = findViewById(R.id.gender);
+        myListView = findViewById(R.id.myListView);
+
+        // Weitere Anpassungen und Logik können hier durchgeführt werden
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_lebensmittel_tracked);
+        return NavigationUI.navigateUp(navController, appBarConfiguration)
+                || super.onSupportNavigateUp();
+    }
+}
+
+
+/*
 import android.os.Bundle;
 import android.view.View;
 
@@ -47,4 +93,4 @@ public class Lebensmittel_Tracked extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-}
+}*/
