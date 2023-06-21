@@ -1,5 +1,6 @@
 package com.example.EnergizeMe.myfirstapp.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.EnergizeMe.myfirstapp.ui.main.Tracked.Activity_Tracked;
+import com.example.EnergizeMe.myfirstapp.ui.main.Tracked.Lebensmittel_Tracked;
 import com.example.myfirstapp.R;
 
 public class MeinTag extends AppCompatActivity {
@@ -60,14 +63,18 @@ public class MeinTag extends AppCompatActivity {
         mealsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Logik für den Klick auf den "Mahlzeiten"-Button hier einfügen (für die obere)
+                // Logik für den Klick auf den "Mahlzeiten"-Button (für die obere)
+                Intent i = new Intent(getApplicationContext(), Lebensmittel_Tracked.class);
+                startActivity(i);
             }
         });
 
         activitiesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Logik für den Klick auf den "Aktivitäten"-Button hier einfügen (für die obere)
+                // Logik für den Klick auf den "Aktivitäten"-Button (für die obere)
+                Intent i = new Intent(getApplicationContext(), Activity_Tracked.class);
+                startActivity(i);
             }
         });
 

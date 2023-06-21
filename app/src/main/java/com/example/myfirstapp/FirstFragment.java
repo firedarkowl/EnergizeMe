@@ -1,4 +1,4 @@
-package com.example.EnergizeMe.myfirstapp.ui.main;
+package com.example.myfirstapp;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {

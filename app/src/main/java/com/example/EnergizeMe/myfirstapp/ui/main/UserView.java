@@ -6,10 +6,9 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
-import com.example.EnergizeMe.myfirstapp.ui.main.SectionsPagerAdapter;
+import com.example.myfirstapp.SectionsPagerAdapter;
 import com.example.myfirstapp.databinding.ActivityUserViewBinding;
 
 public class UserView extends AppCompatActivity {

@@ -1,8 +1,7 @@
-package com.example.EnergizeMe.myfirstapp.ui.main;
+package com.example.myfirstapp;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -20,9 +19,7 @@ import com.example.EnergizeMe.myfirstapp.Logik.Gender;
 import com.example.EnergizeMe.myfirstapp.Logik.LebensMittel;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMeinTagBinding;
-import com.google.android.material.snackbar.Snackbar;
 
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,7 +62,7 @@ public class MeinTagOld extends AppCompatActivity {
                         .setAnchorView(R.id.fab)
                         .setAction("Action", null).show();
             }
-        }*/);
+        });*/
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

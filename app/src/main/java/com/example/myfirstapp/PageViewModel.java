@@ -1,4 +1,4 @@
-package com.example.EnergizeMe.myfirstapp.ui.main;
+package com.example.myfirstapp;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

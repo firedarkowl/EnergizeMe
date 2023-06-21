@@ -1,4 +1,4 @@
-package com.example.EnergizeMe.myfirstapp.ui.main;
+package com.example.myfirstapp;
 
 import android.content.Context;
 import androidx.annotation.Nullable;
@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.myfirstapp.PlaceholderFragment;
 import com.example.myfirstapp.R;
 
 /**
