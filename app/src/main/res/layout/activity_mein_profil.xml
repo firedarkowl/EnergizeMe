@@ -10,106 +10,111 @@
         android:orientation="vertical"
         android:background="@color/gelb_1">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="1">
-
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.25"
-            android:background="@color/grün_2"
-            android:src="@drawable/arrow"
-            android:padding="10dp"/>
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_weight="0.75"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/grün_2"
-            android:gravity="center"
-            android:minHeight="?actionBarSize"
-            android:padding="@dimen/appbar_padding"
-            android:text="Mein Profil"
-            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-            android:textSize="25dp"
-            android:textStyle="bold" />
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
-
-
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="10dp" />
-
-        <RelativeLayout
-
-            android:id="@+id/header"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="192dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginRight="18dp"
-            android:background="@drawable/grad"
-            android:paddingBottom="18dp">
+            android:layout_height="wrap_content"
+            android:weightSum="1">
 
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:background="@color/grün_2"
+                android:src="@drawable/arrow"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_weight="0.75"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/grün_2"
+                android:gravity="center"
+                android:minHeight="?actionBarSize"
+                android:padding="@dimen/appbar_padding"
+                android:text="Mein Profil"
+                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="10dp" />
 
             <RelativeLayout
-                android:id="@+id/imageUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/circle_border">
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="192dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:background="@drawable/grad"
+                android:paddingBottom="18dp">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="9dp"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginEnd="9dp"
-                    android:layout_marginBottom="9dp"
-                    android:adjustViewBounds="true"
-                    android:background="@drawable/profil"
+                <RelativeLayout
+                    android:id="@+id/imageUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/circle_border">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="9dp"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginEnd="9dp"
+                        android:layout_marginBottom="9dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/profil"
+                        android:padding="7dp"
+                        android:scaleType="centerInside" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/vorname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageUser"
+                    android:fontFamily="@font/font_by_rosie"
                     android:padding="7dp"
-                    android:scaleType="centerInside" />
+                    android:text="Max"
+                    android:textColor="@color/white"
+                    android:textSize="23sp" />
+
+                <TextView
+                    android:id="@+id/nachname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vorname"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/font_by_rosie"
+                    android:text="Mustermann"
+                    android:textColor="@color/white"
+                    android:textSize="23sp" />
+
+                <TextView
+                    android:id="@+id/alter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nachname"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/font_by_rosie"
+                    android:text="Alter: "
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
             </RelativeLayout>
-
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="262dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imageUser"
-                android:fontFamily="@font/font_by_rosie"
-                android:padding="7dp"
-                android:text="Max Mustermann"
-                android:textColor="@color/white"
-                android:textSize="23sp" />
-
-            <TextView
-                android:id="@+id/birthday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/name"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="@font/font_by_rosie"
-                android:text="Geburtstag: 22.05.2003"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-
-        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="370dp"

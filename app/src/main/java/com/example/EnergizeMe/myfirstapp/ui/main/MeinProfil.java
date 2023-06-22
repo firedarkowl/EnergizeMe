@@ -30,15 +30,29 @@ public class MeinProfil extends AppCompatActivity {
     private EditText ziel;
     private EditText taetigkeitslevel;
     private ImageView back;
+    private EditText vorname_view, nachname_view, alter_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        //       setContentView(binding.getRoot());
         setContentView(R.layout.activity_mein_profil);
 
         profilDB = new DataBaseMeinProfil(this);
+        vorname_view = findViewById(R.id.vorname);
+        nachname_view = findViewById(R.id.nachname);
+        alter_view = findViewById(R.id.alter);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String vorname = extras.getString("Vorname");
+            String nachname = extras.getString("Nachname");
+            int alter = extras.getInt("Alter");
+
+            vorname_view.setText(vorname);
+            nachname_view.setText(nachname);
+            alter_view.setText(String.valueOf(alter));
+        }
 
         geschlecht = (EditText)findViewById(R.id.gender_info);
         groesse = (EditText)findViewById(R.id.height_info);
