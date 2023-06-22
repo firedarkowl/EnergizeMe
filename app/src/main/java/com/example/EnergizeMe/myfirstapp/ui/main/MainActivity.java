@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -70,9 +69,12 @@ public class MainActivity extends AppCompatActivity {
                     String altereingegeben = txt3.getText().toString();
                     int alter = Integer.parseInt(altereingegeben);
 
-
                     Toast.makeText(MainActivity.this, "Willkommen " + vorname + " " + nachname, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, MeinTag.class);
+                    Intent i = new Intent(MainActivity.this, MeinProfil.class);
+                    i.putExtra("Vorname", vorname);
+                    i.putExtra("Nachname", nachname);
+                    i.putExtra("Alter", alter);
                     startActivity(intent);
                 } else {
                     Toast.makeText(MainActivity.this, "Bitte gib deine Daten ein!", Toast.LENGTH_SHORT).show();
@@ -131,12 +133,19 @@ public class MainActivity extends AppCompatActivity {
         EditText txt2 = findViewById(R.id.nachname);
         String nachname = txt2.getText().toString();
 
+        EditText txt3 = findViewById(R.id.alter);
+        String alter = txt3.getText().toString();
+
         if(vorname.isEmpty()) {
             txt1.setError("Bitte deinen Namen eingeben!");
             return false;
         }
         if(nachname.isEmpty()) {
             txt2.setError("Bitte deinen Namen eingeben!");
+            return false;
+        }
+        if(alter.isEmpty()) {
+            txt3.setError("Bitte gib deinen ALter ein!");
             return false;
         }
         return true;
