@@ -69,6 +69,13 @@ public class MainActivity extends AppCompatActivity {
                     String altereingegeben = txt3.getText().toString();
                     int alter = Integer.parseInt(altereingegeben);
 
+                    boolean isInserted = myDb.insertData(editVorname.getText().toString(),
+                            editNachname.getText().toString(),editAlter.toString());
+                    if(isInserted==true) {
+                        Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(MainActivity.this,"Data not Inserted", Toast.LENGTH_LONG).show();
+                    }
                     Toast.makeText(MainActivity.this, "Willkommen " + vorname + " " + nachname, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, MeinTag.class);
                     Intent i = new Intent(MainActivity.this, MeinProfil.class);
@@ -105,23 +112,7 @@ public class MainActivity extends AppCompatActivity {
         });*/
     }
 
-    public void addData() {
-        btn.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
 
-                        boolean isInserted = myDb.insertData(editVorname.getText().toString(),
-                                editNachname.getText().toString(),editAlter.toString());
-                        if(isInserted==true) {
-                            Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(MainActivity.this,"Data not Inserted", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                }
-        );
-    }
 
     /**
      *Hilfsmethode: checkt ob der User seinen Namen und Nachnamen eingegeben hat
