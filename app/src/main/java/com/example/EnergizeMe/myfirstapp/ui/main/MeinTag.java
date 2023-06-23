@@ -57,8 +57,8 @@ public class MeinTag extends AppCompatActivity {
         ProgressBar consumedPointsProgressBar = findViewById(R.id.consumedPointsProgressBar);
 
         //"Buttons" zum Tacken von jeweils Lebensmittel/Mahzeit und aktivität
-        ImageView lebensmittelImageView = findViewById(R.id.lebensmittel);
-        ImageView aktivitatImageView = findViewById(R.id.aktivitaet);
+        ImageView lebensmittelImageView = findViewById(R.id.lebensmittel_tracking);
+        ImageView aktivitatImageView = findViewById(R.id.aktivitaet_tracking);
 
         mealsButton.setOnClickListener(new View.OnClickListener() {
             @Override

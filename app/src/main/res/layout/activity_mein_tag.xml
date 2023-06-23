@@ -302,7 +302,7 @@
                 android:layout_width="match_parent">
 
             <ImageView
-                android:id="@+id/lebensmittel"
+                android:id="@+id/lebensmittel_tracking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -310,7 +310,7 @@
                 android:src="@drawable/avo2"/>
 
             <ImageView
-                android:id="@+id/aktivitaet"
+                android:id="@+id/aktivitaet_tracking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
