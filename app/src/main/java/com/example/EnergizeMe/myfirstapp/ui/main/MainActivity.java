@@ -68,10 +68,11 @@ public class MainActivity extends AppCompatActivity {
                     String altereingegeben = txt3.getText().toString();
                     int alter = Integer.parseInt(altereingegeben);
 
-                    boolean isInserted = myDb.insertData(editVorname.getText().toString(),
+                    long userInserted = myDb.insertData(editVorname.getText().toString(),
                             editNachname.getText().toString(),editAlter.getText().toString());
-                    if(isInserted==true) {
-                        Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                    if(userInserted >= 0) {
+                        Toast.makeText(MainActivity.this, "Data Inserted with id"+ userInserted, Toast.LENGTH_LONG).show();
+                        DataBaseHelperBenutzer.currentUserId = userInserted;
                     } else {
                         Toast.makeText(MainActivity.this,"Data not Inserted", Toast.LENGTH_LONG).show();
                     }

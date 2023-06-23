@@ -15,9 +15,12 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.EnergizeMe.myfirstapp.Datenbank.DataBaseHelperBenutzer;
 import com.example.EnergizeMe.myfirstapp.Datenbank.DataBaseMeinProfil;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMainBinding;
+
+import java.util.HashMap;
 
 public class MeinProfil extends AppCompatActivity {
 
@@ -44,22 +47,19 @@ public class MeinProfil extends AppCompatActivity {
         nachname_view = findViewById(R.id.nachname);
         alter_view = findViewById(R.id.alter);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String vorname = extras.getString("Vorname");
-            String nachname = extras.getString("Nachname");
-            int alter = extras.getInt("Alter");
+        DataBaseHelperBenutzer dbhb = new DataBaseHelperBenutzer(this);
+        HashMap<String, String> userData = dbhb.getUserData();
 
-            vorname_view.setText(vorname);
-            nachname_view.setText(nachname);
-            alter_view.setText(String.valueOf(alter));
-        }
+        vorname_view.setText(userData.get("vorname"));
+        nachname_view.setText(userData.get("nachname"));
+        alter_view.setText("Alter: "+ String.valueOf(userData.get("alter")));
 
-        geschlecht = (EditText)findViewById(R.id.gender_info);
-        groesse = (EditText)findViewById(R.id.height_info);
-        gewicht = (EditText)findViewById(R.id.weight_info);
-        ziel = (EditText)findViewById(R.id.weight_info);
-        taetigkeitslevel = (EditText)findViewById(R.id.activity_info);
+
+        geschlecht = (EditText) findViewById(R.id.gender_info);
+        groesse = (EditText) findViewById(R.id.height_info);
+        gewicht = (EditText) findViewById(R.id.weight_info);
+        ziel = (EditText) findViewById(R.id.weight_info);
+        taetigkeitslevel = (EditText) findViewById(R.id.activity_info);
 
         back = findViewById(R.id.back);
         Spinner spinner = findViewById(R.id.spinner);
