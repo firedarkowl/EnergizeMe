@@ -16,7 +16,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.EnergizeMe.myfirstapp.Datenbank.DataBaseHelperBenutzer;
-import com.example.EnergizeMe.myfirstapp.ui.main.Tracked.Lebensmittel_Tracked;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMainBinding;
 
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     int alter = Integer.parseInt(altereingegeben);
 
                     boolean isInserted = myDb.insertData(editVorname.getText().toString(),
-                            editNachname.getText().toString(),editAlter.toString());
+                            editNachname.getText().toString(),editAlter.getText().toString());
                     if(isInserted==true) {
                         Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
                     } else {
