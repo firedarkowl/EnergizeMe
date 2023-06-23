@@ -17,12 +17,14 @@ import com.example.EnergizeMe.myfirstapp.ui.main.MeinTag;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+
 public class Tracking_Lebensmittel extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ImageView back;
     private ListView myListView;
- private @NonNull ActivityMainBinding binding;
+    private @NonNull ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class Tracking_Lebensmittel extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_tracking_lebensmittel);
 
+        ArrayList<String> myList = new ArrayList<>();
 
         back = findViewById(R.id.back);
         myListView = findViewById(R.id.myListView);

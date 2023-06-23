@@ -13,7 +13,7 @@ public class AktivitatTest {
 
     private Benutzer benutzer;
     private Aktivitat aktivitat;
-    private LebensMittel lebensmittel;
+    private Nahrung lebensmittel;
 
     @Before
     public void setup() {
@@ -26,7 +26,7 @@ public class AktivitatTest {
         naehrwerte.put("Kalorien", 100.0);
         naehrwerte.put("Fett", 10.0);
         naehrwerte.put("Ballaststoffe", 5.0);
-        lebensmittel = new LebensMittel("Test Lebensmittel", naehrwerte, benutzer);
+        lebensmittel = new Nahrung("Test Lebensmittel", naehrwerte, benutzer);
     }
 
     @Test

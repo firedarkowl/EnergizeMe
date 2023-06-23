@@ -29,7 +29,7 @@ public class Benutzer {
 
     private LocalDate startDate = LocalDate.now(); // Start date of the counting period
     private int daysCounter = 0; // Counter for the number of days
-    private LebensMittel lebensMittel;
+    private Nahrung nahrung;
     private Aktivitat aktivitat;
 
     public Benutzer(String name, Gender gender, int height, double weight, int age, Ernaehrungsziel ernaehungsziel, Aktivitaetslevel aktivitaetslevel) {
@@ -48,14 +48,14 @@ public class Benutzer {
      * @return der tägliche Punktestand des Benutzers
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public double taglichePunktstand(Aktivitat aktivitat, LebensMittel lebensMittel) {
+    public double taglichePunktstand(Aktivitat aktivitat, Nahrung nahrung) {
 
         punktStandTag = setPunktZahl();
         if (aktivitat != null) {
             punktStandTag += aktivitat.getSavedPoints();
         }
-        if (lebensMittel != null) {
-            punktStandTag -= lebensMittel.getLebPunkte();
+        if (nahrung != null) {
+            punktStandTag -= nahrung.getLebPunkte();
         }
         LocalTime now = LocalTime.now();
         if (now.getHour() >= 23) {

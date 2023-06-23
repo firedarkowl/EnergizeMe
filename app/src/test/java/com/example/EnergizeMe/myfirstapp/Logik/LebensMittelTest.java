@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class LebensMittelTest {
 
-    private LebensMittel lebensmittel;
+    private Nahrung lebensmittel;
     private Aktivitat aktivitat;
     private Benutzer benutzer;
 
@@ -25,7 +25,7 @@ public class LebensMittelTest {
         naehrwerte.put("Kalorien", 100.0);
         naehrwerte.put("Fett", 10.0);
         naehrwerte.put("Ballaststoffe", 5.0);
-        lebensmittel = new LebensMittel("Test Lebensmittel", naehrwerte, benutzer);
+        lebensmittel = new Nahrung("Test Lebensmittel", naehrwerte, benutzer);
     }
 
     @Test
@@ -49,7 +49,7 @@ public class LebensMittelTest {
         naehrwerte.put("Fett", 10.0);
         naehrwerte.put("Ballaststoffe", 5.0);
 
-        LebensMittel lebensmittel = new LebensMittel("Example Food", naehrwerte, benutzer);
+        Nahrung lebensmittel = new Nahrung("Example Food", naehrwerte, benutzer);
 
         double portionsgroesse = 200.0;
         double expectedPoints = 5;
