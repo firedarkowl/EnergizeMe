@@ -13,10 +13,14 @@ import java.util.HashMap;
 public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "nutzer.db";
     public static final String TABLE_NAME = "nutzer_table";
-    public static final String COL_1 = "ID";
-    public static final String COL_2 = "VORNAME";
-    public static final String COL_3 = "NACHNAME";
-    public static final String COL_4 = "AGE";
+    public static final String COL_ID = "ID";
+    public static final String COL_VORNAME = "VORNAME";
+    public static final String COL_NACHNAME = "NACHNAME";
+    public static final String COL_ALTER = "AGE";
+    public static final String COL_GESCHLECHT = "GESCHLECHT";
+    public static final String COL_GROESSE = "GROESSE";
+    public static final String COL_GEWICHT = "GEWICHT";
+    public static final String COL_TAETIGKEIT = "TAETIGKEIT";
 
     public static long currentUserId = -1;
 
@@ -29,7 +33,16 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, VORNAME TEXT, NACHNAME TEXT, AGE TEXT) ");
+        db.execSQL("create table " + TABLE_NAME + " " +
+                "(ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "" + COL_VORNAME + " TEXT, " +
+                "" + COL_NACHNAME + " TEXT, " +
+                "" + COL_ALTER + " INTEGER," +
+                "" + COL_GROESSE + " INTEGER," +
+                "" + COL_GEWICHT + " INTEGER," +
+                "" + COL_GESCHLECHT + " TEXT, " +
+                "" + COL_TAETIGKEIT + " TEXT " +
+                ") ");
     }
 
     @Override
@@ -41,9 +54,11 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
     public long insertData(String vorname, String nachname, String alter) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2, vorname);
-        contentValues.put(COL_3, nachname);
-        contentValues.put(COL_4, alter);
+        contentValues.put(COL_VORNAME, vorname);
+        contentValues.put(COL_NACHNAME, nachname);
+        contentValues.put(COL_GROESSE, 160);
+        contentValues.put(COL_GEWICHT, 60);
+        contentValues.put(COL_ALTER, alter);
 
         // wenn db.insert -1 returned = Fehler, wenn ID der Zeile ausgegeben = hat geklappt
         return db.insert(TABLE_NAME, null, contentValues);
@@ -51,19 +66,11 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
 
     public HashMap<String, String> getUserData() {
         SQLiteDatabase db = this.getReadableDatabase();
-
-// Define a projection that specifies which columns from the database
-// you will actually use after this query.
-        String[] projection = {
-                COL_1, COL_2, COL_3, COL_4
-        };
-
-// Filter results WHERE "title" = 'My Title'
-        String selection = COL_1 + " = ?";
+        String[] projection = {COL_ID, COL_VORNAME, COL_NACHNAME, COL_ALTER, COL_TAETIGKEIT, COL_GESCHLECHT, COL_GEWICHT, COL_GROESSE};
+        String selection = COL_ID + " = ?";
         String[] selectionArgs = {String.valueOf(currentUserId)};
 
-        Cursor cursor = db.query(
-                TABLE_NAME,   // The table to query
+        Cursor cursor = db.query(TABLE_NAME,   // The table to query
                 projection,             // The array of columns to return (pass null to get all)
                 selection,              // The columns for the WHERE clause
                 selectionArgs,          // The values for the WHERE clause
@@ -73,12 +80,19 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
         );
         cursor.moveToFirst();
         HashMap<String, String> userData = new HashMap<String, String>();
-        userData.put("vorname", cursor.getString(cursor.getColumnIndexOrThrow(COL_2)));
-        userData.put("nachname", cursor.getString(cursor.getColumnIndexOrThrow(COL_3)));
-        userData.put("alter", cursor.getString(cursor.getColumnIndexOrThrow(COL_4)));
+        userData.put("vorname", cursor.getString(cursor.getColumnIndexOrThrow(COL_VORNAME)));
+        userData.put("nachname", cursor.getString(cursor.getColumnIndexOrThrow(COL_NACHNAME)));
+        userData.put("alter", cursor.getString(cursor.getColumnIndexOrThrow(COL_ALTER)));
+        userData.put("groesse", cursor.getString(cursor.getColumnIndexOrThrow(COL_GROESSE)));
+        userData.put("gewicht", cursor.getString(cursor.getColumnIndexOrThrow(COL_GEWICHT)));
 
         cursor.close();
         return userData;
+    }
+
+    public void updateCurrentUser(ContentValues cv) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.update(TABLE_NAME, cv, "id = ?", new String[]{String.valueOf(currentUserId)});
     }
 
     public Cursor getAllData() {
@@ -90,10 +104,10 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
     public boolean updateData(String masseid, String vorname, String nachname, String alter) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_1, masseid);
-        contentValues.put(COL_2, vorname);
-        contentValues.put(COL_3, nachname);
-        contentValues.put(COL_4, alter);
+        contentValues.put(COL_ID, masseid);
+        contentValues.put(COL_VORNAME, vorname);
+        contentValues.put(COL_NACHNAME, nachname);
+        contentValues.put(COL_ALTER, alter);
 
         db.update(TABLE_NAME, contentValues, "nutzerid = ?", new String[]{masseid});
         return true;

@@ -19,6 +19,8 @@ import com.example.EnergizeMe.myfirstapp.Datenbank.DataBaseHelperBenutzer;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMainBinding;
 
+import java.util.regex.Pattern;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
@@ -39,9 +41,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
-
 
         // von Lan
         myDb = new DataBaseHelperBenutzer(this);
@@ -128,18 +127,30 @@ public class MainActivity extends AppCompatActivity {
         String alter = txt3.getText().toString();
 
         if(vorname.isEmpty()) {
-            txt1.setError("Bitte deinen Namen eingeben!");
+            txt1.setError("Bitte deinen Vornamen eingeben!");
             return false;
         }
         if(nachname.isEmpty()) {
-            txt2.setError("Bitte deinen Namen eingeben!");
+            txt2.setError("Bitte deinen Nachnamen eingeben!");
             return false;
         }
         if(alter.isEmpty()) {
-            txt3.setError("Bitte gib deinen ALter ein!");
+            txt3.setError("Bitte gib dein Alter ein!");
+            return false;
+        }
+        if(!isNumeric(alter) || Integer.valueOf(alter) < 1 || Integer.valueOf(alter) > 150 ) {
+            txt3.setError("Bitte gebe ein gültiges Alter ein");
             return false;
         }
         return true;
+    }
+    public boolean isNumeric(String strNum) {
+        Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
+
+        if (strNum == null) {
+            return false;
+        }
+        return pattern.matcher(strNum).matches();
     }
 
 

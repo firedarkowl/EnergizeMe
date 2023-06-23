@@ -1,12 +1,16 @@
 package com.example.EnergizeMe.myfirstapp.ui.main;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,9 +40,14 @@ public class MeinProfil extends AppCompatActivity {
     private ImageView back;
     private TextView vorname_view, nachname_view, alter_view;
 
+    private Context context;
+
+    Button weight_change, height_change;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_mein_profil);
 
@@ -57,13 +66,37 @@ public class MeinProfil extends AppCompatActivity {
 
         geschlecht = (EditText) findViewById(R.id.gender_info);
         groesse = (EditText) findViewById(R.id.height_info);
+        groesse.setText(String.valueOf(userData.get("groesse")));
         gewicht = (EditText) findViewById(R.id.weight_info);
+        gewicht.setText(String.valueOf(userData.get("gewicht")));
         ziel = (EditText) findViewById(R.id.weight_info);
         taetigkeitslevel = (EditText) findViewById(R.id.activity_info);
 
         back = findViewById(R.id.back);
         Spinner spinner = findViewById(R.id.spinner);
         //tring selectedValue = spinner.getSelectedItem().toString();
+
+        weight_change = findViewById(R.id.weight_change);
+        weight_change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContentValues cv = new ContentValues();
+                cv.put(DataBaseHelperBenutzer.COL_GEWICHT, gewicht.getText().toString());
+                dbhb.updateCurrentUser(cv);
+                Toast.makeText(context, "Gewicht wurde geändert", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        height_change = findViewById(R.id.height_change);
+        height_change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContentValues cv = new ContentValues();
+                cv.put(DataBaseHelperBenutzer.COL_GROESSE, groesse.getText().toString());
+                dbhb.updateCurrentUser(cv);
+                Toast.makeText(context, "Größe wurde geändert", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         back.setOnClickListener(new View.OnClickListener() {
