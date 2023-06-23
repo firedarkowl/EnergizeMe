@@ -90,6 +90,30 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
         return userData;
     }
 
+    public HashMap<String, String> getLastUserData() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] projection = {COL_ID, COL_VORNAME, COL_NACHNAME, COL_ALTER, COL_TAETIGKEIT, COL_GESCHLECHT, COL_GEWICHT, COL_GROESSE};
+
+        Cursor cursor = db.query(TABLE_NAME,   // The table to query
+                projection,             // The array of columns to return (pass null to get all)
+                null,              // The columns for the WHERE clause
+                null,          // The values for the WHERE clause
+                null,                   // don't group the rows
+                null,                   // don't filter by row groups
+                null               // The sort order
+        );
+        if(cursor != null && cursor.getCount() > 0) {
+            cursor.moveToLast();
+            HashMap<String, String> userData = new HashMap<String, String>();
+            userData.put("id", cursor.getString(cursor.getColumnIndexOrThrow(COL_ID)));
+            userData.put("vorname", cursor.getString(cursor.getColumnIndexOrThrow(COL_VORNAME)));
+            userData.put("nachname", cursor.getString(cursor.getColumnIndexOrThrow(COL_NACHNAME)));
+            cursor.close();
+            return userData;
+        }
+        return null;
+    }
+
     public void updateCurrentUser(ContentValues cv) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.update(TABLE_NAME, cv, "id = ?", new String[]{String.valueOf(currentUserId)});

@@ -19,6 +19,7 @@ import com.example.EnergizeMe.myfirstapp.Datenbank.DataBaseHelperBenutzer;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMainBinding;
 
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,8 +30,7 @@ public class MainActivity extends AppCompatActivity {
     DataBaseHelperBenutzer myDb;
 
     // noch eins für Alter
-    EditText editVorname, editNachname,editAlter;
-
+    EditText editVorname, editNachname, editAlter;
 
 
     private String PREF_NAME = null;
@@ -45,10 +45,18 @@ public class MainActivity extends AppCompatActivity {
         // von Lan
         myDb = new DataBaseHelperBenutzer(this);
 
-        editVorname = (EditText)findViewById(R.id.vorname);
-        editNachname = (EditText)findViewById(R.id.nachname);
-        editAlter = (EditText)findViewById(R.id.alter);
-        btn = (Button)findViewById(R.id.button_create);
+        HashMap<String, String> lastUserData = myDb.getLastUserData();
+        if (lastUserData != null) {
+            DataBaseHelperBenutzer.currentUserId = Long.valueOf(lastUserData.get("id"));
+            Intent intent = new Intent(MainActivity.this, MeinTag.class);
+            startActivity(intent);
+            finish();
+        }
+
+        editVorname = (EditText) findViewById(R.id.vorname);
+        editNachname = (EditText) findViewById(R.id.nachname);
+        editAlter = (EditText) findViewById(R.id.alter);
+        btn = (Button) findViewById(R.id.button_create);
         //addData();
 
         btn.setOnClickListener((new View.OnClickListener() {
@@ -68,12 +76,9 @@ public class MainActivity extends AppCompatActivity {
                     int alter = Integer.parseInt(altereingegeben);
 
                     long userInserted = myDb.insertData(editVorname.getText().toString(),
-                            editNachname.getText().toString(),editAlter.getText().toString());
-                    if(userInserted >= 0) {
-                        Toast.makeText(MainActivity.this, "Data Inserted with id"+ userInserted, Toast.LENGTH_LONG).show();
+                            editNachname.getText().toString(), editAlter.getText().toString());
+                    if (userInserted >= 0) {
                         DataBaseHelperBenutzer.currentUserId = userInserted;
-                    } else {
-                        Toast.makeText(MainActivity.this,"Data not Inserted", Toast.LENGTH_LONG).show();
                     }
                     Toast.makeText(MainActivity.this, "Willkommen " + vorname + " " + nachname, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, MeinTag.class);
@@ -87,10 +92,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }));
-
-
-
-
 
 
         //setSupportActionBar(binding.toolbar);
@@ -112,9 +113,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     /**
-     *Hilfsmethode: checkt ob der User seinen Namen und Nachnamen eingegeben hat
+     * Hilfsmethode: checkt ob der User seinen Namen und Nachnamen eingegeben hat
      */
     private boolean youShallNotPass() {
         EditText txt1 = findViewById(R.id.vorname);
@@ -126,24 +126,33 @@ public class MainActivity extends AppCompatActivity {
         EditText txt3 = findViewById(R.id.alter);
         String alter = txt3.getText().toString();
 
-        if(vorname.isEmpty()) {
+        if (vorname.isEmpty()) {
             txt1.setError("Bitte deinen Vornamen eingeben!");
             return false;
         }
-        if(nachname.isEmpty()) {
+        if (nachname.isEmpty()) {
             txt2.setError("Bitte deinen Nachnamen eingeben!");
             return false;
         }
-        if(alter.isEmpty()) {
+        if (alter.isEmpty()) {
             txt3.setError("Bitte gib dein Alter ein!");
             return false;
         }
-        if(!isNumeric(alter) || Integer.valueOf(alter) < 1 || Integer.valueOf(alter) > 150 ) {
+        if (!isNumeric(alter) || Integer.valueOf(alter) < 1 || Integer.valueOf(alter) > 150) {
             txt3.setError("Bitte gebe ein gültiges Alter ein");
+            return false;
+        }
+        if (vorname.length() > 40 || vorname.length() < 3) {
+            txt1.setError("Vorname sollte zwischen 3 und 40 Zeichen haben");
+            return false;
+        }
+        if (nachname.length() > 40 || nachname.length() < 3) {
+            txt2.setError("Nachname sollte zwischen 3 und 40 Zeichen haben");
             return false;
         }
         return true;
     }
+
     public boolean isNumeric(String strNum) {
         Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 

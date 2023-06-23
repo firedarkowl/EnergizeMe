@@ -65,9 +65,9 @@
                 android:layout_margin="5dp"
                 android:background="#7ABCBF5E"
                 android:hint="Dein Alter"
+                android:inputType="number"
                 android:padding="15dp"
                 android:text="@string/vorname"
-                android:inputType="number"
                 android:textAlignment="center"
                 android:textSize="15sp"></EditText>
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -79,8 +79,9 @@
             android:layout_height="wrap_content"
             android:background="#C3344C11"
             android:padding="15dp"
-            android:text="Start"
+            android:text="Benutzer erstellen"
             android:textColor="@color/grün_1"
             android:textSize="15sp"></Button>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.appcompat.widget.LinearLayoutCompat>
