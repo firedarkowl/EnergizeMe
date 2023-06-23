@@ -93,29 +93,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/imageUser"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_centerHorizontal="true">
 
                     <TextView
                         android:id="@+id/vorname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:fontFamily="@font/font_by_rosie"
-                        android:padding="7dp"
-                        android:text="Max"
+                        android:text="Vorname"
                         android:textColor="@color/white"
-                        android:textSize="23sp" />
+                        android:textSize="20sp"/>
+
+                    <View
+                        android:layout_width="2mm"
+                        android:layout_height="0dp" />
 
                     <TextView
                         android:id="@+id/nachname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/vorname"
-                        android:layout_centerHorizontal="true"
                         android:fontFamily="@font/font_by_rosie"
-                        android:text="Mustermann"
+                        android:text="Nachname"
                         android:textColor="@color/white"
-                        android:textSize="23sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
 
                 <TextView
