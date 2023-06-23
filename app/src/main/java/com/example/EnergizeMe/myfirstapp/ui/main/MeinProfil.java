@@ -2,6 +2,8 @@ package com.example.EnergizeMe.myfirstapp.ui.main;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -41,7 +44,7 @@ public class MeinProfil extends AppCompatActivity {
 
     private Context context;
 
-    Button weight_change, height_change;
+    Button weight_change, height_change, delete_profil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +84,7 @@ public class MeinProfil extends AppCompatActivity {
         taetigkeitslevel.setAdapter(adapterTaetigkeiten);
 
         back = findViewById(R.id.back);
+        delete_profil = findViewById(R.id.delete_profil);
         Spinner spinner = findViewById(R.id.spinner);
         //tring selectedValue = spinner.getSelectedItem().toString();
 
@@ -111,6 +115,23 @@ public class MeinProfil extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        delete_profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(context)
+                        .setTitle("Unwiderufliches Löschen")
+                        .setMessage("Willst Du dieses Profil wirklich unwiederuflich löschen?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                dbhb.deleteCurrentUser();
+                                DataBaseHelperBenutzer.currentUserId = -1;
+                                finish();
+                                startActivity(new Intent(context, MainActivity.class));
+                            }})
+                        .setNegativeButton(android.R.string.no, null).show();
             }
         });
     }

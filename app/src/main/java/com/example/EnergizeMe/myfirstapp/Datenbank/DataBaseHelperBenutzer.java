@@ -90,6 +90,11 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
         return userData;
     }
 
+    public boolean deleteCurrentUser() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, COL_ID + "= ?", new String[]{String.valueOf(currentUserId)}) > 0;
+    }
+
     public HashMap<String, String> getLastUserData() {
         SQLiteDatabase db = this.getReadableDatabase();
         String[] projection = {COL_ID, COL_VORNAME, COL_NACHNAME, COL_ALTER, COL_TAETIGKEIT, COL_GESCHLECHT, COL_GEWICHT, COL_GROESSE};
