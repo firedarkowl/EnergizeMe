@@ -144,15 +144,11 @@
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
-                    <EditText
+                    <Spinner
                         android:id="@+id/gender_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="Geschlecht"
-                        android:inputType="text"
-                        android:textStyle="italic" />
+                        android:layout_weight="1"></Spinner>
 
 
                     <Button
@@ -268,7 +264,7 @@
                         android:textStyle="bold" />
 
 
-                    <EditText
+                    <!-- <EditText
                         android:id="@+id/activity_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -276,9 +272,13 @@
                         android:ems="10"
                         android:hint="Tätigkeit"
                         android:inputType="text"
-                        android:textStyle="italic" />
+                        android:textStyle="italic" />-->
 
-
+                    <Spinner
+                        android:id="@+id/activity_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"></Spinner>
                     <Button
                         android:id="@+id/activity_change"
                         android:layout_width="115dp"

@@ -2,9 +2,9 @@ package com.example.EnergizeMe.myfirstapp.ui.main;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -32,11 +32,10 @@ public class MeinProfil extends AppCompatActivity {
     private @NonNull ActivityMainBinding binding;
     private DataBaseMeinProfil profilDB;
     private EditText geburtsdatum;
-    private EditText geschlecht;
     private EditText groesse;
     private EditText gewicht;
     private EditText ziel;
-    private EditText taetigkeitslevel;
+    private Spinner taetigkeitslevel, geschlecht;
     private ImageView back;
     private TextView vorname_view, nachname_view, alter_view;
 
@@ -64,13 +63,22 @@ public class MeinProfil extends AppCompatActivity {
         alter_view.setText("Alter: "+ String.valueOf(userData.get("alter")));
 
 
-        geschlecht = (EditText) findViewById(R.id.gender_info);
+        geschlecht = findViewById(R.id.gender_info);
+        String[] geschlechter = new String[]{"Männlich", "Weiblich", "Divers"};
+        ArrayAdapter<String> adapterGeschlecht = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, geschlechter);
+        geschlecht.setAdapter(adapterGeschlecht);
+
+
         groesse = (EditText) findViewById(R.id.height_info);
         groesse.setText(String.valueOf(userData.get("groesse")));
         gewicht = (EditText) findViewById(R.id.weight_info);
         gewicht.setText(String.valueOf(userData.get("gewicht")));
         ziel = (EditText) findViewById(R.id.weight_info);
-        taetigkeitslevel = (EditText) findViewById(R.id.activity_info);
+
+        taetigkeitslevel = findViewById(R.id.activity_info);
+        String[] taetigkeiten = new String[]{"Wenig Bewegung", "Durchschnittliche Bewegung", "Viel Bewegung"};
+        ArrayAdapter<String> adapterTaetigkeiten = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, taetigkeiten);
+        taetigkeitslevel.setAdapter(adapterTaetigkeiten);
 
         back = findViewById(R.id.back);
         Spinner spinner = findViewById(R.id.spinner);
@@ -102,9 +110,7 @@ public class MeinProfil extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Logik für den Klick auf den "Mahlzeiten"-Button (für den oberen Button)
-                Intent i = new Intent(MeinProfil.this, MeinTag.class);
-                startActivity(i);
+                finish();
             }
         });
     }
