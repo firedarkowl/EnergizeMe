@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="#7ABCBF5E"
-                android:hint="Dein ALter"
+                android:hint="Dein Alter"
                 android:padding="15dp"
                 android:text="@string/vorname"
                 android:textAlignment="center"

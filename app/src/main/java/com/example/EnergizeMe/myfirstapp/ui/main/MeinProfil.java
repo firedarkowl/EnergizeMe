@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +31,7 @@ public class MeinProfil extends AppCompatActivity {
     private EditText ziel;
     private EditText taetigkeitslevel;
     private ImageView back;
-    private EditText vorname_view, nachname_view, alter_view;
+    private TextView vorname_view, nachname_view, alter_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

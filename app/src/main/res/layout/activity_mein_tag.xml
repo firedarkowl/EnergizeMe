@@ -293,7 +293,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gelb_1">
+            android:background="@color/gelb_1"
+            android:layout_gravity="bottom">
 
             <LinearLayout
                 android:layout_marginTop="40dp"
