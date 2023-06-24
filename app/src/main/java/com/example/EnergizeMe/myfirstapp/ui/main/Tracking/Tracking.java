@@ -16,10 +16,12 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.EnergizeMe.myfirstapp.Logik.Activity;
 import com.example.EnergizeMe.myfirstapp.ui.main.MeinTag;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMainBinding;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Tracking extends AppCompatActivity {
@@ -42,6 +44,15 @@ public class Tracking extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         //       setContentView(binding.getRoot());
         setContentView(R.layout.activity_activity_tracking);
+
+        ArrayList<Activity> activities = new ArrayList<>();
+
+
+        Activity activity1 = new Activity("Laufen", 30, 300, 10, LocalTime.now());
+        activities.add(activity1);
+
+        Activity activity2 = new Activity("Yoga", 60, 200, 8, LocalTime.now());
+        activities.add(activity2);
 
         back = findViewById(R.id.back);
         myListView = findViewById(R.id.myListView);
