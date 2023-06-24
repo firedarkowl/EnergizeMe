@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.EnergizeMe.myfirstapp.Logik.Nahrung;
 import com.example.EnergizeMe.myfirstapp.ui.main.MeinTag;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMainBinding;
@@ -32,7 +33,22 @@ public class Tracking_Lebensmittel extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_tracking_lebensmittel);
 
-        ArrayList<String> myList = new ArrayList<>();
+        ArrayList<Nahrung> nahrung = new ArrayList<>();
+
+        Nahrung nahrung1 = new Nahrung("Apfel", 100, 5, 52, 0, 0, 14, 10);
+        nahrung.add(nahrung1);
+
+        Nahrung nahrung2 = new Nahrung("Banane", 100, 3, 96, 1, 0, 23, 17);
+        nahrung.add(nahrung2);
+
+        Nahrung nahrung3 = new Nahrung("Hühnchenbrust", 100, 8, 165, 31, 3, 0, 0);
+        nahrung.add(nahrung3);
+
+        Nahrung nahrung4 = new Nahrung("Vollkornbrot", 100, 4, 79, 3, 1, 14, 1);
+        nahrung.add(nahrung4);
+
+        Nahrung nahrung5 = new Nahrung("Joghurt", 100, 6, 154, 5, 9, 14, 14);
+        nahrung.add(nahrung5);
 
         back = findViewById(R.id.back);
         myListView = findViewById(R.id.myListView);
