@@ -59,6 +59,8 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
         contentValues.put(COL_GROESSE, 160);
         contentValues.put(COL_GEWICHT, 60);
         contentValues.put(COL_ALTER, alter);
+        contentValues.put(COL_GESCHLECHT, "Divers");
+        contentValues.put(COL_TAETIGKEIT, "Wenig Bewegung");
 
         // wenn db.insert -1 returned = Fehler, wenn ID der Zeile ausgegeben = hat geklappt
         return db.insert(TABLE_NAME, null, contentValues);
@@ -85,7 +87,8 @@ public class DataBaseHelperBenutzer extends SQLiteOpenHelper {
         userData.put("alter", cursor.getString(cursor.getColumnIndexOrThrow(COL_ALTER)));
         userData.put("groesse", cursor.getString(cursor.getColumnIndexOrThrow(COL_GROESSE)));
         userData.put("gewicht", cursor.getString(cursor.getColumnIndexOrThrow(COL_GEWICHT)));
-
+        userData.put("geschlecht", cursor.getString(cursor.getColumnIndexOrThrow(COL_GESCHLECHT)));
+        userData.put("taetigkeit", cursor.getString(cursor.getColumnIndexOrThrow(COL_TAETIGKEIT)));
         cursor.close();
         return userData;
     }

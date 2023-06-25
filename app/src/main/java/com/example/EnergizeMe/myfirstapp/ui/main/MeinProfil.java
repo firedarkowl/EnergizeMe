@@ -44,7 +44,7 @@ public class MeinProfil extends AppCompatActivity {
 
     private Context context;
 
-    Button weight_change, height_change, delete_profil;
+    Button weight_change, height_change, delete_profil, gender_change, activity_change;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +83,15 @@ public class MeinProfil extends AppCompatActivity {
         ArrayAdapter<String> adapterTaetigkeiten = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, taetigkeiten);
         taetigkeitslevel.setAdapter(adapterTaetigkeiten);
 
+        String selectedTatigkeit = userData.get("tätigkeit");
+        int selectedTaetigkeitPosition = adapterTaetigkeiten.getPosition(selectedTatigkeit);
+        taetigkeitslevel.setSelection(selectedTaetigkeitPosition);
+
+
+        String selectedGender = userData.get("geschlecht");
+        int selectedGenderPosition = adapterGeschlecht.getPosition(selectedGender);
+        geschlecht.setSelection(selectedGenderPosition);
+
         back = findViewById(R.id.back);
         delete_profil = findViewById(R.id.delete_profil);
         Spinner spinner = findViewById(R.id.spinner);
@@ -96,6 +105,37 @@ public class MeinProfil extends AppCompatActivity {
                 cv.put(DataBaseHelperBenutzer.COL_GEWICHT, gewicht.getText().toString());
                 dbhb.updateCurrentUser(cv);
                 Toast.makeText(context, "Gewicht wurde geändert", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        gender_change = findViewById(R.id.gender_change);
+        gender_change.setOnClickListener (new View.OnClickListener() {
+        @Override
+        public void onClick(View v){
+            String selectedGender = geschlecht.getSelectedItem().toString();
+            ContentValues cv = new ContentValues();
+            cv.put(DataBaseHelperBenutzer.COL_GESCHLECHT, selectedGender);
+            dbhb.updateCurrentUser(cv);
+            Toast.makeText(context, "Geschlecht wurde geändert", Toast.LENGTH_SHORT).show();
+
+            // Den geänderten Wert im Spinner anzeigen
+            int selectedGenderPosition = adapterGeschlecht.getPosition(selectedGender);
+            geschlecht.setSelection(selectedGenderPosition);
+        }
+        });
+
+        activity_change = findViewById(R.id.activity_change);
+        activity_change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String selectedActivity = taetigkeitslevel.getSelectedItem().toString();
+                ContentValues cv = new ContentValues();
+                cv.put(DataBaseHelperBenutzer.COL_TAETIGKEIT, selectedActivity);
+                dbhb.updateCurrentUser(cv);
+                Toast.makeText(context, "Tätigkeitslevel wurde aktualisiert", Toast.LENGTH_SHORT).show();
+
+                int selectedTatPos = adapterTaetigkeiten.getPosition(selectedActivity);
+                taetigkeitslevel.setSelection(selectedTatPos);
             }
         });
 
