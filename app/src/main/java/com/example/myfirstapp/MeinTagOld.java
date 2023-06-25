@@ -16,6 +16,7 @@ import com.example.EnergizeMe.myfirstapp.Logik.Aktivitaetslevel;
 import com.example.EnergizeMe.myfirstapp.Logik.Benutzer;
 import com.example.EnergizeMe.myfirstapp.Logik.Ernaehrungsziel;
 import com.example.EnergizeMe.myfirstapp.Logik.Gender;
+import com.example.EnergizeMe.myfirstapp.Logik.LebensMittel;
 import com.example.EnergizeMe.myfirstapp.Logik.Nahrung;
 import com.example.myfirstapp.databinding.ActivityMeinTagBinding;
 
@@ -27,7 +28,7 @@ public class MeinTagOld extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMeinTagBinding binding;
     private Benutzer benutzer;
-    private Nahrung lebensmittel;
+    private LebensMittel lebensmittel;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -44,7 +45,7 @@ public class MeinTagOld extends AppCompatActivity {
         naehrwerte.put("Kalorien", 100.0);
         naehrwerte.put("Fett", 10.0);
         naehrwerte.put("Ballaststoffe", 5.0);
-        lebensmittel = new Nahrung("Test Lebensmittel", naehrwerte, benutzer);
+        lebensmittel = new LebensMittel("Test Lebensmittel", naehrwerte, benutzer);
 
         // Benutzerinformationen in den Feldern anzeigen
         displayUserInfo();

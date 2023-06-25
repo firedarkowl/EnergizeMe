@@ -58,6 +58,15 @@ public class Tracking extends AppCompatActivity {
         back = findViewById(R.id.back);
         myListView = findViewById(R.id.myListView);
 
+        ArrayList<String> activityNames = new ArrayList<>();
+        for (Activity activity : activities) {
+            activityNames.add(activity.getName());
+        }
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, activityNames);
+
+        // Setze den ArrayAdapter auf die ListView
+        myListView.setAdapter(adapter);
+
         // Weitere Anpassungen und Logik können hier durchgeführt werden
         back.setOnClickListener(new View.OnClickListener() {
             @Override

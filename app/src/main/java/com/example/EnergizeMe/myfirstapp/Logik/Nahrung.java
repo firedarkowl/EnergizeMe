@@ -54,4 +54,8 @@ public class Nahrung {
     public int getZucker() {
         return zucker;
     }
+
+    public double getLebPunkte() {
+        return 0.0;
+    }
 }

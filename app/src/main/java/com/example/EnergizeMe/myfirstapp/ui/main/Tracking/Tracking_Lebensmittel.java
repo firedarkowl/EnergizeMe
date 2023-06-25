@@ -3,6 +3,7 @@ package com.example.EnergizeMe.myfirstapp.ui.main.Tracking;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -26,6 +27,8 @@ public class Tracking_Lebensmittel extends AppCompatActivity {
     private ImageView back;
     private ListView myListView;
     private @NonNull ActivityMainBinding binding;
+    private ArrayList<String> arrayList;
+    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +53,19 @@ public class Tracking_Lebensmittel extends AppCompatActivity {
         Nahrung nahrung5 = new Nahrung("Joghurt", 100, 6, 154, 5, 9, 14, 14);
         nahrung.add(nahrung5);
 
+
+
         back = findViewById(R.id.back);
         myListView = findViewById(R.id.myListView);
 
+        ArrayList<String> nahrungNames = new ArrayList<>();
+        for (Nahrung item : nahrung) {
+            nahrungNames.add(item.getName());
+        }
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, nahrungNames);
+
+        // Setze den ArrayAdapter auf die ListView
+        myListView.setAdapter(adapter);
         // Weitere Anpassungen und Logik können hier durchgeführt werden
         back.setOnClickListener(new View.OnClickListener() {
             @Override

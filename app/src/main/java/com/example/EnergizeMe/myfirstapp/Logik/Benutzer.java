@@ -48,7 +48,7 @@ public class Benutzer {
      * @return der tägliche Punktestand des Benutzers
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public double taglichePunktstand(Aktivitat aktivitat, Nahrung nahrung) {
+    public double taglichePunktstand(Aktivitat aktivitat, LebensMittel nahrung) {
 
         punktStandTag = setPunktZahl();
         if (aktivitat != null) {
