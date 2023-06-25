@@ -9,13 +9,13 @@ public class Activity {
     private int punkte;
     private LocalTime zeit;
 
-    public Activity(String name, int dauer, int kalorien, int punkte, LocalTime zeit) {
+    public Activity(String name, int dauer, int kalorien, int punkte) {
 
         this.name = name;
         this.dauer = dauer;
         this.kalorien = kalorien;
         this.punkte = punkte;
-        this.zeit = zeit;
+        //this.zeit = zeit;
     }
 
     public String getName() {

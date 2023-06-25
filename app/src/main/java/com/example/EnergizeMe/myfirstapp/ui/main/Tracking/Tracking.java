@@ -48,10 +48,10 @@ public class Tracking extends AppCompatActivity {
         ArrayList<Activity> activities = new ArrayList<>();
 
 
-        Activity activity1 = new Activity("Laufen", 30, 300, 10, LocalTime.now());
+        Activity activity1 = new Activity("Laufen", 30, 300, 10);
         activities.add(activity1);
 
-        Activity activity2 = new Activity("Yoga", 60, 200, 8, LocalTime.now());
+        Activity activity2 = new Activity("Yoga", 60, 200, 8);
         activities.add(activity2);
 
 
