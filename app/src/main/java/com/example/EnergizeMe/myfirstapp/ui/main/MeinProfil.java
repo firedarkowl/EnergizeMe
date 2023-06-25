@@ -132,10 +132,11 @@ public class MeinProfil extends AppCompatActivity {
                 ContentValues cv = new ContentValues();
                 cv.put(DataBaseHelperBenutzer.COL_TAETIGKEIT, selectedActivity);
                 dbhb.updateCurrentUser(cv);
-                Toast.makeText(context, "Tätigkeitslevel wurde aktualisiert", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "Tätigkeitslevel wurde aktualisiert", Toast.LENGTH_SHORT).show();
 
-                int selectedTatPos = adapterTaetigkeiten.getPosition(selectedActivity);
-                taetigkeitslevel.setSelection(selectedTatPos);
+                int selectedTatigkeitPosition = adapterTaetigkeiten.getPosition(selectedActivity);
+                taetigkeitslevel.setSelection(selectedTatigkeitPosition);
+
             }
         });
 
