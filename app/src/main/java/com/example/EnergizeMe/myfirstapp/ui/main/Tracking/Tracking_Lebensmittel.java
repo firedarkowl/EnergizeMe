@@ -1,11 +1,14 @@
 package com.example.EnergizeMe.myfirstapp.ui.main.Tracking;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +19,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.EnergizeMe.myfirstapp.Logik.Nahrung;
 import com.example.EnergizeMe.myfirstapp.ui.main.MeinTag;
+import com.example.EnergizeMe.myfirstapp.ui.main.Tracked.Lebensmittel_Tracked;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.databinding.ActivityMainBinding;
 
@@ -29,12 +33,15 @@ public class Tracking_Lebensmittel extends AppCompatActivity {
     private @NonNull ActivityMainBinding binding;
     private ArrayList<String> arrayList;
     private ArrayAdapter<String> adapter;
+    private Context context;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_tracking_lebensmittel);
+        context = this;
 
         ArrayList<Nahrung> nahrung = new ArrayList<>();
 
@@ -66,7 +73,28 @@ public class Tracking_Lebensmittel extends AppCompatActivity {
 
         // Setze den ArrayAdapter auf die ListView
         myListView.setAdapter(adapter);
-        // Weitere Anpassungen und Logik können hier durchgeführt werden
+
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                //Punkte abspeichern
+                Nahrung selectedNahrung = nahrung.get(position);
+                int punkteSelectedNahrung = selectedNahrung.getPunkte();
+                int prSelNahr = selectedNahrung.getProtein();
+                int khSelNahr = selectedNahrung.getKh();
+                int fettSelNahr = selectedNahrung.getFett();
+
+                MeinTag.punkte += punkteSelectedNahrung;
+                MeinTag.protein += prSelNahr;
+                MeinTag.kohlenhydrate += khSelNahr;
+                MeinTag.fett += fettSelNahr;
+                Lebensmittel_Tracked.tracked.add(selectedNahrung.getName());
+
+                Toast.makeText(context, "Das ausgewählte Lebensmittel wurde hinzugefügt! " + punkteSelectedNahrung, Toast.LENGTH_SHORT).show();
+            }
+        });
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,8 +1,10 @@
 package com.example.EnergizeMe.myfirstapp.ui.main.Tracked;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,6 +18,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.EnergizeMe.myfirstapp.ui.main.MeinTag;
 import com.example.myfirstapp.R;
 
+import java.util.ArrayList;
+
 public class Activity_Tracked extends AppCompatActivity {
     private ImageView back;
     private TextView title;
@@ -23,16 +27,25 @@ public class Activity_Tracked extends AppCompatActivity {
     private ListView myListView;
 
     private AppBarConfiguration appBarConfiguration;
+    public static ArrayList<String> tracked = new ArrayList<>();
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_tracked);
+        context = this;
 
         // Initialisiere die Views
         back = findViewById(R.id.back);
         title = findViewById(R.id.title);
         gender = findViewById(R.id.gender);
         myListView = findViewById(R.id.myListView);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tracked);
+
+        // Setze den ArrayAdapter auf die ListView
+        myListView.setAdapter(adapter);
+
 
         // Weitere Anpassungen und Logik können hier durchgeführt werden
         back.setOnClickListener(new View.OnClickListener() {

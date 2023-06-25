@@ -4,6 +4,7 @@ package com.example.EnergizeMe.myfirstapp.ui.main.Tracked;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,6 +18,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.EnergizeMe.myfirstapp.ui.main.MeinTag;
 import com.example.myfirstapp.R;
 
+import java.util.ArrayList;
+
 public class Lebensmittel_Tracked extends AppCompatActivity {
     private ImageView back;
     private TextView title;
@@ -24,6 +27,8 @@ public class Lebensmittel_Tracked extends AppCompatActivity {
     private ListView myListView;
 
     private AppBarConfiguration appBarConfiguration;
+
+    public static ArrayList<String> tracked = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,11 @@ public class Lebensmittel_Tracked extends AppCompatActivity {
         title = findViewById(R.id.title);
         gender = findViewById(R.id.gender);
         myListView = findViewById(R.id.myListView);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tracked);
+
+        // Setze den ArrayAdapter auf die ListView
+        myListView.setAdapter(adapter);
 
         // Weitere Anpassungen und Logik können hier durchgeführt werden
         back.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +63,13 @@ public class Lebensmittel_Tracked extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+/*
+    @Override
+    public void onResume(){
+        super.onResume();
+        pointsTextView.setText(punkte+"");
+
+    }*/
 }
 
 

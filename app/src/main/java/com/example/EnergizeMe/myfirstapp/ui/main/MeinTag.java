@@ -30,12 +30,28 @@ public class MeinTag extends AppCompatActivity {
     private ActivityMainBinding binding;
     private AppBarConfiguration appBarConfiguration;
 
+    private  ProgressBar consumedPointsProgressBar;
+
+    private ProgressBar remainingPointsProgressBar;
+
+    public static int punkte = 0;
+    public static int protein = 0;
+    public static int kohlenhydrate = 0;
+    public static int fett = 0;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
  //       setContentView(binding.getRoot());
         setContentView(R.layout.activity_mein_tag);
+
+        pointsTextView = findViewById(R.id.points);
+        proteinTextView = findViewById(R.id.protein);
+        carbohydratesTextView = findViewById(R.id.kohlenhydrate);
+        fatTextView = findViewById(R.id.fett);
 
 
         //Button für "MeinProfil" oben rechts (die Avocado) - soll noch als Button betrachtet werden, s Link unten
@@ -51,14 +67,17 @@ public class MeinTag extends AppCompatActivity {
         ProgressBar pointsPerDayProgressBar = findViewById(R.id.pointsPerDayProgressBar);
 
         //die Progressbar für die Punkte die noch übrig bleiben für den Tag
-        ProgressBar remainingPointsProgressBar = findViewById(R.id.remainingPointsProgressBar);
+        remainingPointsProgressBar = findViewById(R.id.remainingPointsProgressBar);
 
         //die Progressbar zu den verbrauchten Punkten
-        ProgressBar consumedPointsProgressBar = findViewById(R.id.consumedPointsProgressBar);
+        consumedPointsProgressBar = findViewById(R.id.consumedPointsProgressBar);
 
         //"Buttons" zum Tacken von jeweils Lebensmittel/Mahzeit und aktivität
         ImageView lebensmittelImageView = findViewById(R.id.lebensmittel_tracking);
         ImageView aktivitatImageView = findViewById(R.id.aktivitaet_tracking);
+
+
+
 
         mealsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,19 +125,13 @@ public class MeinTag extends AppCompatActivity {
         });
 
 
+
         //für ImageView als Button behandeln: https://www.geeksforgeeks.org/how-to-use-imageview-as-a-button-in-android/
     }
 
-    private void performButtonClickLogic() {
-        // Logik für den Klick auf den "Mahlzeiten"-Button (für die obere)
-        Intent mealsIntent = new Intent(getApplicationContext(), Lebensmittel_Tracked.class);
-        startActivity(mealsIntent);
 
-        // Logik für den Klick auf den "Aktivitäten"-Button (für die obere)
-        Intent activitiesIntent = new Intent(getApplicationContext(), Activity_Tracked.class);
-        startActivity(activitiesIntent);
-
-        // Weitere Logik, die Sie hier ausführen möchten...
+    public void setPointsTextView(TextView textView) {
+        this.pointsTextView = textView;
     }
 
     @Override
@@ -126,5 +139,19 @@ public class MeinTag extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        pointsTextView.setText(punkte+"");
+        proteinTextView.setText(protein+"");
+        carbohydratesTextView.setText(kohlenhydrate+"");
+        fatTextView.setText(fett+"");
+        consumedPointsProgressBar.setMax(100);
+        remainingPointsProgressBar.setMax(100);
+        consumedPointsProgressBar.setProgress(punkte);
+        remainingPointsProgressBar.setProgress(100 - punkte);
+
     }
 }
